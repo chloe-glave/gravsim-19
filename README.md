@@ -3,10 +3,10 @@ COMP 2522 - Final Hackathon Project
 
 ## Contributors
 
-Chloe Glave - A01166947
+[Chloe Glave](https://github.com/Cragzu) - A01166947
 
-Janelle Kwok - A01166243
+[Janelle Kwok](https://github.com/Jkcadee) - A01166243
 
-Keegan Maundrell - A01172483
+[Keegan Maundrell](https://github.com/Go-Maun) - A01172483
 
-Kayden Schmidt - A01174919
+[Kayden Schmidt](https://github.com/Nedtheyak) - A01174919
