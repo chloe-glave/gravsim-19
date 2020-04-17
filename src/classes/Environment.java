@@ -36,6 +36,8 @@ public class Environment {
     public Planet createPlanet() {
         Planet planet = new Planet();
         bodies.add(planet);
+        simulator.addBody(planet);
+
         return planet;
     }
 
@@ -47,6 +49,8 @@ public class Environment {
     public Star createStar() {
         Star star = new Star();
         bodies.add(star);
+        simulator.addBody(star);
+
         return star;
     }
 
