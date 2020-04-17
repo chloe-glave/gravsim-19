@@ -52,7 +52,7 @@ public class Driver extends Application {
 
         Group bodies = environment.generateGroupAllBodiesShapes();
 
-        Group root = new Group(overlay.getHudGroup(), bodies, backgroundDecorations);
+        Group root = new Group(overlay.getHudGroup(), backgroundDecorations, bodies);
 
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BACKGROUND_COLOR);
 
