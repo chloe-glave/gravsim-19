@@ -123,5 +123,15 @@ public class Star implements StaticBody {
         return shape;
     }
 
+    @Override
+    public double getX() {
+        return shape.getCenterX();
+    }
+
+    @Override
+    public double getY() {
+        return shape.getCenterY();
+    }
+
 
 }

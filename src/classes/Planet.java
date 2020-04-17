@@ -84,6 +84,17 @@ public class Planet implements DynamicBody {
         return vy;
     }
 
+    @Override
+    public void addVx(double num) {
+
+    }
+
+    @Override
+    public void addVy(double num) {
+
+    }
+
+
     /**
      * Updates the planets X and Y centers by the Velocity in the X and Y directions.
      */
@@ -114,5 +125,15 @@ public class Planet implements DynamicBody {
     @Override
     public Shape getShape() {
         return shape;
+    }
+
+    @Override
+    public double getX() {
+        return 0;
+    }
+
+    @Override
+    public double getY() {
+        return 0;
     }
 }

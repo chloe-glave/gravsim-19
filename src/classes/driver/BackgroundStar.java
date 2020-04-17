@@ -51,7 +51,7 @@ public class BackgroundStar extends Circle {
 
         for (int i = 0; i < NUM_OF_STARS_TO_GENERATE; i++) {
             int generatedX = new Random().nextInt(Driver.WINDOW_WIDTH);
-            int generatedY = new Random().nextInt(Driver.WINDOW_HEIGHT);
+            int generatedY = new Random().nextInt(Driver.WINDOW_HEIGHT - 100);
 
             BackgroundStar star = new BackgroundStar(generatedX, generatedY);
 

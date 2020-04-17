@@ -72,4 +72,14 @@ public class Coin implements Collectible {
         return shape;
     }
 
+    @Override
+    public double getX() {
+        return shape.getCenterX();
+    }
+
+    @Override
+    public double getY() {
+        return shape.getCenterY();
+    }
+
 }
