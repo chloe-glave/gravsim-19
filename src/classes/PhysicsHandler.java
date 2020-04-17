@@ -17,6 +17,10 @@ public class PhysicsHandler {
      * The default physics tick interval, in milliseconds.
      */
     public static final long DEFAULT_INTERVAL = 20;
+    /**
+     * The coefficient for gravitational acceleration.
+     */
+    public static final double GRAVITATIONAL_CONSTANT = 2.0;
 
     private long interval;
     private ArrayList<DynamicBody> dynamicBodies;
