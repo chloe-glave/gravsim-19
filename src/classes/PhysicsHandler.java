@@ -121,4 +121,12 @@ public class PhysicsHandler {
         }
     }
 
+    /**
+     * Set the speed of the simulation.
+     *
+     * @param speed the new speed for the simulation
+     */
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
 }
