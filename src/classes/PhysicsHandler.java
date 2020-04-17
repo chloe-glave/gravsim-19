@@ -45,6 +45,8 @@ public class PhysicsHandler {
         this.collisionsOn = true;
         this.paused = false;
         this.thread = new Thread(this::run);
+        thread.setDaemon(true);
+        thread.start();
     }
 
     /**
@@ -134,6 +136,7 @@ public class PhysicsHandler {
         while (running) {
             moveBodies();
             checkCollisions();
+            accelerateBodies();
 
             try {
                 Thread.sleep((long) (interval / speed));
