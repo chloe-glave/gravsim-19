@@ -115,7 +115,7 @@ public class PhysicsHandler {
 
     /* Accelerate all dynamic bodies towards all other bodies, once. */
     private void accelerateBodies() {
-        for (PhysicalBody body : dynamicBodies) {
+        for (DynamicBody body : dynamicBodies) {
             for (PhysicalBody otherBody : bodies) {
                 if (body != otherBody) {
                     double deltaX = otherBody.getX() - body.getX();
