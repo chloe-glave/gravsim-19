@@ -106,7 +106,7 @@ public class PhysicsHandler {
         System.out.println("You hear explosions or something.");
     }
 
-    /* Move all bodies assigned to this handler, once. */
+    /* Move all dynamic bodies assigned to this handler, once. */
     private void moveBodies() {
         for (DynamicBody body : dynamicBodies) {
             body.move();
