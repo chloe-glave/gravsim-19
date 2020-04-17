@@ -35,7 +35,7 @@ public class Planet implements DynamicBody {
      */
     public Planet() {
         Random random = new Random();
-        final int defaultVelocity = 5;
+        final double defaultVelocity = 5;
         final int circleRadiusModifier = 250;
         final int earthsRadius = 6371;
         final int shapeRadius = earthsRadius / circleRadiusModifier;
