@@ -18,6 +18,7 @@ public class Star implements StaticBody {
 
     }
 
+    //default constructor
     public Star() {
         Ellipse newShape = new Ellipse(10, 10, 5, 5);
         this.radius = 5;
