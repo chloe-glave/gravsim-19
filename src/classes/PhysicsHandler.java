@@ -20,7 +20,7 @@ public class PhysicsHandler {
     /**
      * The coefficient for gravitational acceleration.
      */
-    public static final double GRAVITATIONAL_CONSTANT = 2.0;
+    public static final double GRAVITATIONAL_CONSTANT = 0.0002;
 
     private long interval;
     private ArrayList<DynamicBody> dynamicBodies;
@@ -120,9 +120,6 @@ public class PhysicsHandler {
                 if (body != otherBody) {
                     double deltaX = otherBody.getX() - body.getX();
                     double deltaY = otherBody.getY() - body.getY();
-                    double deltaTotal = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-                    deltaX /= deltaTotal;
-                    deltaY /= deltaTotal;
                     body.addVx(otherBody.getMass() * GRAVITATIONAL_CONSTANT * deltaX);
                     body.addVy(otherBody.getMass() * GRAVITATIONAL_CONSTANT * deltaY);
                 }
