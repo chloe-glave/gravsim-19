@@ -17,7 +17,7 @@ public class Planet implements DynamicBody {
     private double mass;
 
     /* The shape of the planet */
-    private Shape shape;
+    private Circle shape;
 
     /* The velocity of the planets x direction */
     private double vx;
@@ -50,7 +50,7 @@ public class Planet implements DynamicBody {
      * @param vy the y direction velocity of the planet
      * @param destructible boolean determining if the planet can be destroyed
      */
-    public Planet (int radius, double mass, Shape shape, double vx, double vy, boolean destructible) {
+    public Planet (int radius, double mass, Circle shape, double vx, double vy, boolean destructible) {
         this.radius = radius;
         this.mass = mass;
         this.shape = shape;
@@ -82,7 +82,8 @@ public class Planet implements DynamicBody {
      */
     @Override
     public void move() {
-
+        shape.setCenterY(shape.getCenterX() + vx);
+        shape.setCenterY(shape.getCenterX() + vy);
     }
 
     @Override
