@@ -11,7 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
 /**
- * Drives the JavaFX program.
+ * Drives the JavaFX program and displays the content in the window.
  *
  * @author Chloe Glave
  * @version 2020
@@ -46,13 +46,13 @@ public class Driver extends Application {
      */
     public void start(Stage primaryStage) {
 
-        environment.generateBodies();
-
         overlay.createHUD();
 
-        Group bodies = environment.generateGroupAllBodiesShapes();
+        overlay.getSpawnButtonPlanet().setOnAction(click -> environment.createPlanet());
 
-        Group root = new Group(backgroundDecorations, bodies, overlay.getHudGroup());
+        overlay.getSpawnButtonStar().setOnAction(click -> environment.createStar());
+
+        Group root = new Group(backgroundDecorations, environment.getBodyShapes(), overlay.getHudGroup());
 
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BACKGROUND_COLOR);
 

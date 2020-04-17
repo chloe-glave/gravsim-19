@@ -15,8 +15,16 @@ public class Overlay {
     public static final double RECTANGLE_FILL_HEIGHT = Driver.WINDOW_HEIGHT - 655;
 
     private Group hudGroup;
-    private static Button spawnButtonPlanet;
-    private static Button spawnButtonStar;
+    private Button spawnButtonPlanet;
+    private Button spawnButtonStar;
+
+    public Button getSpawnButtonPlanet() {
+        return spawnButtonPlanet;
+    }
+
+    public Button getSpawnButtonStar() {
+        return spawnButtonStar;
+    }
 
     public void createHUD() {
         Rectangle rectangleBase = new Rectangle(0, RECTANGLE_BASE_Y, Driver.WINDOW_WIDTH,
@@ -31,17 +39,13 @@ public class Overlay {
         spawnButtonPlanet.setMaxSize(100, 150);
         spawnButtonPlanet.setTranslateX(350.0);
         spawnButtonPlanet.setTranslateY(665.75);
-        spawnButtonPlanet.setOnAction(click -> {
-            Environment.createPlanet();
-        });
+
 
         spawnButtonStar = new Button("Spawn Star");
         spawnButtonStar.setMaxSize(100, 150);
         spawnButtonStar.setTranslateX(600.0);
         spawnButtonStar.setTranslateY(665.75);
-        spawnButtonStar.setOnAction(click -> {
-            Environment.createStar();
-        });
+
 
         hudGroup = new Group(rectangleBase, rectangleFill, spawnButtonPlanet, spawnButtonStar);
     }
