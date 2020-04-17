@@ -1,6 +1,6 @@
 package interfaces;
 
 public interface PhysicalBody extends SpatialEntity {
-    int getMass();
+    double getMass();
     boolean getDestructible();
 }
