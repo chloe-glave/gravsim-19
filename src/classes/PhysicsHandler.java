@@ -81,14 +81,8 @@ public class PhysicsHandler {
         collisionsOn = !collisionsOn;
     }
 
-    /**
-     * Check for collisions between physical bodies, and simulate any found.
-     *
-     * @pre bodies must be non-null
-     * @post check collisions between physical bodies
-     * @post simulate any collisions found
-     */
-    public void checkCollisions() {
+    /* Check for collisions between physical bodies, and simulate any found. */
+    private void checkCollisions() {
         if (!paused && collisionsOn) {
             for (int i = 0; i < bodies.size() - 1; i++) {
                 PhysicalBody first = bodies.get(i);
@@ -103,26 +97,13 @@ public class PhysicsHandler {
         }
     }
 
-    /**
-     * Simulate a collision between two physical bodies.
-     *
-     * @param first the first physical body involved in the collision
-     * @param second the second physical body involved in the collision
-     * @pre first must be non-null
-     * @pre second must be non-null
-     * @post simulate a collision between first and second
-     */
-    public void simulateCollision(PhysicalBody first, PhysicalBody second) {
+    /* Simulate a collision between two physical bodies. */
+    private void simulateCollision(PhysicalBody first, PhysicalBody second) {
         System.out.println("You hear explosions or something.");
     }
 
-    /**
-     * Move all bodies assigned to this handler, once.
-     *
-     * @pre dynamicBodies must be non-null
-     * @post move all bodies handled by this object
-     */
-    public void moveBodies() {
+    /* Move all bodies assigned to this handler, once. */
+    private void moveBodies() {
         for (DynamicBody body : dynamicBodies) {
             body.move();
         }
