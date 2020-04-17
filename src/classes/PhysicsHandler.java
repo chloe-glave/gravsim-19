@@ -17,6 +17,10 @@ public class PhysicsHandler {
      * The default physics tick interval, in milliseconds.
      */
     public static final long DEFAULT_INTERVAL = 20;
+    /**
+     * The coefficient for gravitational acceleration.
+     */
+    public static final double GRAVITATIONAL_CONSTANT = 2.0;
 
     private long interval;
     private ArrayList<DynamicBody> dynamicBodies;
@@ -81,14 +85,8 @@ public class PhysicsHandler {
         collisionsOn = !collisionsOn;
     }
 
-    /**
-     * Check for collisions between physical bodies, and simulate any found.
-     *
-     * @pre bodies must be non-null
-     * @post check collisions between physical bodies
-     * @post simulate any collisions found
-     */
-    public void checkCollisions() {
+    /* Check for collisions between physical bodies, and simulate any found. */
+    private void checkCollisions() {
         if (!paused && collisionsOn) {
             for (int i = 0; i < bodies.size() - 1; i++) {
                 PhysicalBody first = bodies.get(i);
@@ -103,28 +101,32 @@ public class PhysicsHandler {
         }
     }
 
-    /**
-     * Simulate a collision between two physical bodies.
-     *
-     * @param first the first physical body involved in the collision
-     * @param second the second physical body involved in the collision
-     * @pre first must be non-null
-     * @pre second must be non-null
-     * @post simulate a collision between first and second
-     */
-    public void simulateCollision(PhysicalBody first, PhysicalBody second) {
+    /* Simulate a collision between two physical bodies. */
+    private void simulateCollision(PhysicalBody first, PhysicalBody second) {
         System.out.println("You hear explosions or something.");
     }
 
-    /**
-     * Move all bodies assigned to this handler, once.
-     *
-     * @pre dynamicBodies must be non-null
-     * @post move all bodies handled by this object
-     */
-    public void moveBodies() {
+    /* Move all dynamic bodies assigned to this handler, once. */
+    private void moveBodies() {
         for (DynamicBody body : dynamicBodies) {
             body.move();
+        }
+    }
+
+    /* Accelerate all dynamic bodies towards all other bodies, once. */
+    private void accelerateBodies() {
+        for (DynamicBody body : dynamicBodies) {
+            for (PhysicalBody otherBody : bodies) {
+                if (body != otherBody) {
+                    double deltaX = otherBody.getX() - body.getX();
+                    double deltaY = otherBody.getY() - body.getY();
+                    double deltaTotal = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                    deltaX /= deltaTotal;
+                    deltaY /= deltaTotal;
+                    body.addVx(otherBody.getMass() * GRAVITATIONAL_CONSTANT * deltaX);
+                    body.addVy(otherBody.getMass() * GRAVITATIONAL_CONSTANT * deltaY);
+                }
+            }
         }
     }
 
