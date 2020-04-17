@@ -31,13 +31,19 @@ public class Planet implements DynamicBody {
     /**
      * Constructs a planet with default values.
      */
-    public Planet () {
-        Circle newShape = new Circle(10, 10, 5, Color.BLUE);
-        this.radius = 6371;
-        this.mass = 5.972;
+    public Planet() {
+        final int defaultVelocity = 5;
+        final int defaultCircleRadius = 10;
+        final int defaultCircleLocation = 25;
+        final int earthsRadius = 6371;
+        final double earthsMass = 5.972;
+        Circle newShape = new Circle(defaultCircleRadius,
+                defaultCircleLocation, defaultCircleLocation, Color.BLUE);
+        this.radius = earthsRadius;
+        this.mass = earthsMass;
         this.shape = newShape;
-        this.vx = 5;
-        this.vy = 5;
+        this.vx = defaultVelocity;
+        this.vy = defaultVelocity;
         destructible = true;
     }
 
@@ -50,7 +56,8 @@ public class Planet implements DynamicBody {
      * @param vy the y direction velocity of the planet
      * @param destructible boolean determining if the planet can be destroyed
      */
-    public Planet (int radius, double mass, Circle shape, double vx, double vy, boolean destructible) {
+    public Planet(int radius, double mass, Circle shape,
+                  double vx, double vy, boolean destructible) {
         this.radius = radius;
         this.mass = mass;
         this.shape = shape;
@@ -78,7 +85,7 @@ public class Planet implements DynamicBody {
     }
 
     /**
-     * Moves the planet.
+     * Updates the planets X and Y centers by the Velocity in the X and Y directions.
      */
     @Override
     public void move() {
