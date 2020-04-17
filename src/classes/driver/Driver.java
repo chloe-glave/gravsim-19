@@ -2,7 +2,7 @@ package classes.driver;
 
 import classes.Star;
 import javafx.application.Application;
-import javafx.scene.shape.Shape;
+import javafx.scene.shape.*;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;

@@ -5,6 +5,11 @@ import javafx.scene.layout.Pane;
 
 import java.util.ArrayList;
 
+/*
+* environment holds all the object
+*
+* */
+
 public class Environment {
 
     private ArrayList<SpatialEntity> bodies;
