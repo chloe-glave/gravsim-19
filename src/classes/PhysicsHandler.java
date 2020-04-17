@@ -152,6 +152,8 @@ public class PhysicsHandler {
      * @post set the speed of the simulation
      */
     public void setSpeed(double speed) {
-        this.speed = speed;
+        if (speed > 0) {
+            this.speed = speed;
+        }
     }
 }
