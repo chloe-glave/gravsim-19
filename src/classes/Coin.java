@@ -1,4 +1,4 @@
-package Classes;
+package classes;
 
 import interfaces.Collectible;
 import javafx.scene.paint.Color;
