@@ -22,7 +22,7 @@ public class PlanetTest {
     }
 
     @Test
-    public void getVXReturnsProperValueForDefaultPlanet(){
+    public void getVXReturnsProperValueForDefaultPlanet() {
         assertEquals(defaultPlanet.getVx(), 5, 0.05);
     }
 

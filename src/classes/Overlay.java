@@ -31,25 +31,19 @@ public class Overlay {
         spawnButtonPlanet.setMaxSize(100, 150);
         spawnButtonPlanet.setTranslateX(350.0);
         spawnButtonPlanet.setTranslateY(665.75);
+        spawnButtonPlanet.setOnAction(click -> {
+            Environment.createPlanet();
+        });
 
         spawnButtonStar = new Button("Spawn Star");
         spawnButtonStar.setMaxSize(100, 150);
         spawnButtonStar.setTranslateX(600.0);
         spawnButtonStar.setTranslateY(665.75);
-
-        hudGroup = new Group(rectangleBase, rectangleFill, spawnButtonPlanet, spawnButtonStar);
-    }
-
-    public static void onClickPlanet() {
-        spawnButtonPlanet.setOnAction(click -> {
-            Environment.createPlanet();
-        });
-    }
-
-    public static void onClickStar() {
         spawnButtonStar.setOnAction(click -> {
             Environment.createStar();
         });
+
+        hudGroup = new Group(rectangleBase, rectangleFill, spawnButtonPlanet, spawnButtonStar);
     }
 
     public Group getHudGroup() {
