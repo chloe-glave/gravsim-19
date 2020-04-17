@@ -45,6 +45,8 @@ public class PhysicsHandler {
         this.collisionsOn = true;
         this.paused = false;
         this.thread = new Thread(this::run);
+        thread.setDaemon(true);
+        thread.start();
     }
 
     /**
@@ -134,6 +136,7 @@ public class PhysicsHandler {
         while (running) {
             moveBodies();
             checkCollisions();
+            accelerateBodies();
 
             try {
                 Thread.sleep((long) (interval / speed));
@@ -166,6 +169,9 @@ public class PhysicsHandler {
      */
     public void addBody(PhysicalBody body) {
         this.bodies.add(body);
+        if (body instanceof DynamicBody) {
+            this.dynamicBodies.add((DynamicBody) body);
+        }
     }
 
     /**
@@ -177,27 +183,8 @@ public class PhysicsHandler {
      */
     public void removeBody(PhysicalBody body) {
         this.bodies.remove(body);
-    }
-
-    /**
-     * Adds a dynamic body to the ArrayList of dynamic bodies being handled.
-     *
-     * @param body the dynamic body to add
-     * @pre body must be non-null
-     * @post add the provided dynamic body to the ArrayList of dynamic bodies being handled
-     */
-    public void addDynamicBody(DynamicBody body) {
-        this.dynamicBodies.add(body);
-    }
-
-    /**
-     * Removes a dynamic body from the ArrayList of dynamic bodies being handled.
-     *
-     * @param body the dynamic body to remove
-     * @pre body must be non-null
-     * @post remove the provided dynamic body from the ArrayList of dynamic bodies being handled
-     */
-    public void removeDynamicBody(DynamicBody body) {
-        this.dynamicBodies.remove(body);
+        if (body instanceof DynamicBody) {
+            this.dynamicBodies.remove(body);
+        }
     }
 }
