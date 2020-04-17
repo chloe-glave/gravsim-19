@@ -125,8 +125,8 @@ public class Planet implements DynamicBody {
      */
     @Override
     public void move() {
-        shape.setCenterY(shape.getCenterX() + vx);
-        shape.setCenterY(shape.getCenterX() + vy);
+        shape.setCenterX(shape.getCenterX() + vx);
+        shape.setCenterY(shape.getCenterY() + vy);
     }
 
     /**
