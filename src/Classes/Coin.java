@@ -7,9 +7,9 @@ import javafx.scene.shape.Shape;
 
 public class Coin implements Collectible {
     private int value;
-    private Shape shape;
+    private Ellipse shape;
 
-    public Coin(int value, Shape shape) {
+    public Coin(int value, Ellipse shape) {
         this.value = value;
         this.shape = shape;
     }
@@ -25,7 +25,7 @@ public class Coin implements Collectible {
         this.value = value;
     }
 
-    public void setShape(Shape shape) {
+    public void setShape(Ellipse shape) {
         this.shape = shape;
     }
 
@@ -35,7 +35,7 @@ public class Coin implements Collectible {
     }
 
     @Override
-    public Shape getShape() {
+    public Ellipse getShape() {
         return shape;
     }
 }
