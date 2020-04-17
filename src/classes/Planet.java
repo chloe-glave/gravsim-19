@@ -50,7 +50,8 @@ public class Planet implements DynamicBody {
      * @param vy the y direction velocity of the planet
      * @param destructible boolean determining if the planet can be destroyed
      */
-    public Planet (int radius, double mass, Shape shape, double vx, double vy, boolean destructible) {
+    public Planet(int radius, double mass, Shape shape, double vx,
+                   double vy, boolean destructible) {
         this.radius = radius;
         this.mass = mass;
         this.shape = shape;

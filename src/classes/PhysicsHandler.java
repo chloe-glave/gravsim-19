@@ -9,6 +9,7 @@ import java.util.ArrayList;
  * A class to process and run the physics simulation.  TODO: @pre and @post
  *
  * @author Kayden Schmidt
+ * @version 2020
  */
 public class PhysicsHandler {
     /**
