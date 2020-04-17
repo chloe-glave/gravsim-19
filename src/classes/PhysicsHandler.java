@@ -33,15 +33,13 @@ public class PhysicsHandler {
     /**
      * Instantiate a PhysicsHandler.
      *
-     * @param bodies the list of bodies assigned to this PhysicsHandler
-     * @param dynamicBodies the list of dynamic bodies assigned to this PhysicsHandler
      * @pre bodies must be non-null
      * @pre dynamicBodies must be non-null
      * @post instantiate a PhysicsHandler to handle the bodies provided
      */
-    public PhysicsHandler(ArrayList<PhysicalBody> bodies, ArrayList<DynamicBody> dynamicBodies) {
-        this.bodies = bodies;
-        this.dynamicBodies = dynamicBodies;
+    public PhysicsHandler() {
+        this.bodies = new ArrayList<>();
+        this.dynamicBodies = new ArrayList<>();
         this.interval = DEFAULT_INTERVAL;
         this.speed = 1.0;
         this.collisionsOn = true;
@@ -157,5 +155,49 @@ public class PhysicsHandler {
         if (speed > 0) {
             this.speed = speed;
         }
+    }
+
+    /**
+     * Adds a body to the ArrayList of bodies being handled.
+     *
+     * @param body the body to add
+     * @pre body must be non-null
+     * @post add the provided body to the ArrayList of bodies being handled
+     */
+    public void addBody(PhysicalBody body) {
+        this.bodies.add(body);
+    }
+
+    /**
+     * Removes a body from the ArrayList of bodies being handled.
+     *
+     * @param body the body to remove
+     * @pre body must be non-null
+     * @post remove the provided body from the ArrayList of bodies being handled
+     */
+    public void removeBody(PhysicalBody body) {
+        this.bodies.remove(body);
+    }
+
+    /**
+     * Adds a dynamic body to the ArrayList of dynamic bodies being handled.
+     *
+     * @param body the dynamic body to add
+     * @pre body must be non-null
+     * @post add the provided dynamic body to the ArrayList of dynamic bodies being handled
+     */
+    public void addDynamicBody(DynamicBody body) {
+        this.dynamicBodies.add(body);
+    }
+
+    /**
+     * Removes a dynamic body from the ArrayList of dynamic bodies being handled.
+     *
+     * @param body the dynamic body to remove
+     * @pre body must be non-null
+     * @post remove the provided dynamic body from the ArrayList of dynamic bodies being handled
+     */
+    public void removeDynamicBody(DynamicBody body) {
+        this.dynamicBodies.remove(body);
     }
 }
