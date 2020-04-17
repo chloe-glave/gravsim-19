@@ -76,7 +76,7 @@ public class Planet implements DynamicBody {
         this.mass = mass;
         this.shape = new Circle(random.nextInt(Driver.WINDOW_WIDTH
                 - (shapeRadius * 2)) + shapeRadius,
-                random.nextInt(Driver.WINDOW_HEIGHT - (shapeRadius * 2)) + shapeRadius, shapeRadius,
+                random.nextInt(Overlay.RECTANGLE_BASE_Y - (shapeRadius * 2)) + shapeRadius, shapeRadius,
                 Color.rgb(random.nextInt(colourBound),
                         random.nextInt(colourBound), random.nextInt(colourBound)));
         this.vx = vx;
