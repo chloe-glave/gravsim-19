@@ -50,21 +50,13 @@ public class PhysicsHandler {
     }
 
     /**
-     * Pause the simulation.
+     * Pause or unpause the simulation.
      *
-     * @post pause the simulation
+     * @param paused the new paused value
+     * @post pause or unpause the simulation
      */
-    public void pause() {
-        paused = true;
-    }
-
-    /**
-     * Unpause the simulation.
-     *
-     * @post unpause the simulation
-     */
-    public void unPause() {
-        paused = false;
+    public void setPaused(boolean paused) {
+        this.paused = paused;
     }
 
     /**

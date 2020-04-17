@@ -15,16 +15,16 @@ import java.util.ArrayList;
 
 public class Environment {
 
-    private ArrayList<SpatialEntity> bodies;
-    private PhysicsHandler simulator;
+    private static ArrayList<SpatialEntity> bodies;
+    private static PhysicsHandler simulator;
     private Pane canvas;
 
     /**
      * Constructs an Environment.
      */
     public Environment() {
-        this.bodies = new ArrayList<SpatialEntity>();
-        this.simulator = new PhysicsHandler();
+        bodies = new ArrayList<SpatialEntity>();
+        simulator = new PhysicsHandler();
         this.canvas = new Pane();
     }
 
@@ -33,7 +33,7 @@ public class Environment {
      *
      * @return the newly created Planet.
      */
-    public Planet createPlanet() {
+    public static Planet createPlanet() {
         Planet planet = new Planet();
         bodies.add(planet);
         simulator.addBody(planet);
@@ -46,7 +46,7 @@ public class Environment {
      *
      * @return the newly created Star.
      */
-    public Star createStar() {
+    public static Star createStar() {
         Star star = new Star();
         bodies.add(star);
         simulator.addBody(star);
