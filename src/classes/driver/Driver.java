@@ -1,8 +1,8 @@
-package Driver;
+package classes.driver;
 
 import classes.Star;
 import javafx.application.Application;
-import javafx.scene.shape.*;
+import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -43,7 +43,6 @@ public class Driver extends Application {
         Star star = new Star();
 
         Shape starShape = star.getShape();
-
 
         Group root = new Group(starShape, backgroundDecorations);
 

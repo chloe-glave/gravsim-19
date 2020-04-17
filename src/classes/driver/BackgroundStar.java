@@ -1,4 +1,4 @@
-package Driver;
+package classes.driver;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
@@ -25,13 +25,18 @@ public class BackgroundStar extends Circle {
     static final Color BACKGROUND_STARS_COLOR = Color.CORNSILK;
 
     /**
+     * The radius (size) of each star.
+     */
+    static final int STAR_RADIUS = 4;
+
+    /**
      * Constructor to create a background star.
      *
      * @param centerX the X position of the star.
      * @param centerY the Y position of the star.
      */
     public BackgroundStar(double centerX, double centerY) {
-        super(centerX, centerY, 4);
+        super(centerX, centerY, STAR_RADIUS);
         this.setFill(BACKGROUND_STARS_COLOR);
     }
 
