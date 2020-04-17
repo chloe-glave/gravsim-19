@@ -106,4 +106,33 @@ public class PlanetTest {
         assertEquals(oldYPosition + testPlanet.getVy(), newYPosition, 0.05);
     }
 
+    @Test
+    public void getMassProperlyReturnsTheCorrectValueForDefaultPlanet() {
+        assertEquals(defaultPlanet.getMass(), 5.972, 0.05);
+    }
+
+    @Test
+    public void getMassProperlyReturnsTheCorrectValueForTestPlanet() {
+        assertEquals(testPlanet.getMass(), 0.01, 0.05);
+    }
+
+    @Test
+    public void getDestructibleReturnsTheCorrectBooleanForDefaultPlanet() {
+        assertTrue(defaultPlanet.getDestructible());
+    }
+
+    @Test
+    public void getDestructibleReturnsTheCorrectBooleanForTestPlanet() {
+        assertFalse(testPlanet.getDestructible());
+    }
+
+    @Test
+    public void getShapeReturnsObjectAndNotNullForDefaultPlanet() {
+        assertNotNull(defaultPlanet.getShape());
+    }
+
+    @Test
+    public void getShapeReturnsObjectAndNotNullForTestPlanet() {
+        assertNotNull(defaultPlanet.getShape());
+    }
 }
