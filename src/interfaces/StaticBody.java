@@ -1,4 +1,4 @@
 package interfaces;
 
-public interface StaticBody extends PhysicalBody{
+public interface StaticBody extends PhysicalBody {
 }
