@@ -39,7 +39,6 @@ public class Star implements StaticBody {
     /**
      * Constructs a Star object with default values.
      */
-
     public Star() {
         Ellipse newShape = new Ellipse(10, 10, 5, 5);
         this.radius = 5;
@@ -54,7 +53,6 @@ public class Star implements StaticBody {
      *
      * @param radius The radius to be set.
      */
-
     public void setRadius(int radius) {
         this.radius = radius;
     }
@@ -64,7 +62,6 @@ public class Star implements StaticBody {
      *
      * @param mass The mass to be set.
      */
-
     public void setMass(double mass) {
         this.mass = mass;
     }
@@ -74,7 +71,6 @@ public class Star implements StaticBody {
      *
      * @param shape The shape to be set.
      */
-
     public void setShape(Ellipse shape) {
         this.shape = shape;
     }
@@ -84,7 +80,6 @@ public class Star implements StaticBody {
      *
      * @param destructible The destructibility to be set.
      */
-
     public void setDestructible(boolean destructible) {
         this.destructible = destructible;
     }
@@ -94,7 +89,6 @@ public class Star implements StaticBody {
      *
      * @return The Star's current radius.
      */
-
     public int getRadius() {
         return radius;
     }
@@ -104,7 +98,6 @@ public class Star implements StaticBody {
      *
      * @return The Star's current mass.
      */
-
     @Override
     public double getMass() {
         return mass;
@@ -115,7 +108,6 @@ public class Star implements StaticBody {
      *
      * @return The Star's current destructibility.
      */
-
     @Override
     public boolean getDestructible() {
         return destructible;
@@ -126,7 +118,6 @@ public class Star implements StaticBody {
      *
      * @return The Star's current shape.
      */
-
     @Override
     public Shape getShape() {
         return shape;
