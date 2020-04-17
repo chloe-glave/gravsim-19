@@ -134,6 +134,7 @@ public class PhysicsHandler {
         while (running) {
             moveBodies();
             checkCollisions();
+            accelerateBodies();
 
             try {
                 Thread.sleep((long) (interval / speed));
