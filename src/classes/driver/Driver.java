@@ -1,8 +1,9 @@
 package classes.driver;
 
+import classes.Overlay;
 import classes.Star;
 import javafx.application.Application;
-import javafx.scene.shape.Shape;
+import javafx.scene.shape.*;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -19,17 +20,17 @@ public class Driver extends Application {
     /**
      * The width of the JavaFX window.
      */
-    final static int WINDOW_WIDTH = 1080;
+    public final static int WINDOW_WIDTH = 1080;
 
     /**
      * The height of the JavaFX window.
      */
-    final static int WINDOW_HEIGHT = 720;
+    public final static int WINDOW_HEIGHT = 720;
 
     /**
      * The background color of the JavaFX window.
      */
-    final static Color WINDOW_BACKGROUND_COLOR = Color.BLACK;
+    public final static Color WINDOW_BACKGROUND_COLOR = Color.BLACK;
 
     /**
      * Displays the scene in the window.
@@ -40,11 +41,14 @@ public class Driver extends Application {
 
         Group backgroundDecorations = BackgroundStar.generateStars();
 
+        Overlay overlay = new Overlay();
+        overlay.createHUD();
+
         Star star = new Star();
 
         Shape starShape = star.getShape();
 
-        Group root = new Group(starShape, backgroundDecorations);
+        Group root = new Group(overlay.getHudGroup(), starShape, backgroundDecorations);
 
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BACKGROUND_COLOR);
 
