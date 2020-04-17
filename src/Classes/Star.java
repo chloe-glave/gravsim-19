@@ -1,6 +1,7 @@
 package Classes;
 
 import interfaces.StaticBody;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Shape;
 
@@ -10,11 +11,12 @@ public class Star implements StaticBody {
     private Ellipse shape;
     private boolean destructible;
 
-    public Star(int radius, double mass, Ellipse shape, boolean destructible) {
+    public Star(int radius, double mass, Ellipse shape, boolean destructible, Color color) {
         this.radius = radius;
         this.mass = mass;
         this.shape = shape;
         this.destructible = destructible;
+        this.shape.setFill(color);
 
     }
 
@@ -25,6 +27,7 @@ public class Star implements StaticBody {
         this.mass = 1.989000;
         this.shape = newShape;
         this.destructible = true;
+        this.shape.setFill(Color.YELLOW);
     }
 
     public void setRadius(int radius) {
