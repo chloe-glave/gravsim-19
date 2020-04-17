@@ -48,7 +48,7 @@ public class Driver extends Application {
 
         Shape starShape = star.getShape();
 
-        Group root = new Group(overlay.getHudGroup(), starShape, backgroundDecorations);
+        Group root = new Group(starShape, backgroundDecorations, overlay.getHudGroup());
 
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BACKGROUND_COLOR);
 
