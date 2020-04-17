@@ -63,8 +63,12 @@ public class Environment {
         return bodyShapes;
     }
 
-    public void generateBodies() {
+    /**
+     * Creates objects and adds them to the Bodies ArrayList to be used.
+     */
+    public void generateBodies() { // todo: this is hardcoded, base it off user input instead?
         createStar();
+        createPlanet();
     }
 
 }
