@@ -7,7 +7,7 @@ import javafx.scene.shape.Shape;
 import java.util.ArrayList;
 
 /**
- * A class to process and run the physics simulation.  TODO: @pre and @post
+ * A class to process and run the physics simulation.
  *
  * @author Kayden Schmidt
  * @version 2020
