@@ -113,6 +113,23 @@ public class PhysicsHandler {
         }
     }
 
+    /* Accelerate all dynamic bodies towards all other bodies, once. */
+    private void accelerateBodies() {
+        for (PhysicalBody body : dynamicBodies) {
+            for (PhysicalBody otherBody : bodies) {
+                if (body != otherBody) {
+                    double deltaX = otherBody.getX() - body.getX();
+                    double deltaY = otherBody.getY() - body.getY();
+                    double deltaTotal = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                    deltaX /= deltaTotal;
+                    deltaY /= deltaTotal;
+                    body.addVx(otherBody.getMass() * GRAVITATIONAL_CONSTANT * deltaX);
+                    body.addVy(otherBody.getMass() * GRAVITATIONAL_CONSTANT * deltaY);
+                }
+            }
+        }
+    }
+
     /* Start the simulation. */
     private void run() {
         boolean running = true;
