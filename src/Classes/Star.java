@@ -9,11 +9,23 @@ import javafx.scene.shape.Shape;
  * Simulates a Star object.
  */
 public class Star implements StaticBody {
+    /* The radius for the Star */
     private int radius;
+    /* The mass for the Star, it is relative to the mass of Planet. */
     private double mass;
+    /* The display for Star. */
     private Ellipse shape;
     private boolean destructible;
 
+    /**
+     * Constructs a Star object with an assigned destructibility.
+     *
+     * @param radius
+     * @param mass
+     * @param shape
+     * @param destructible
+     * @param color
+     */
     public Star(int radius, double mass, Ellipse shape, boolean destructible, Color color) {
         this.radius = radius;
         this.mass = mass;
