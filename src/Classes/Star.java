@@ -5,6 +5,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Shape;
 
+/**
+ * Simulates a Star object.
+ */
 public class Star implements StaticBody {
     private int radius;
     private double mass;
