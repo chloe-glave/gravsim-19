@@ -1,5 +1,6 @@
 package classes.driver;
 
+import classes.Environment;
 import classes.Overlay;
 import classes.Star;
 import javafx.application.Application;
@@ -30,7 +31,13 @@ public class Driver extends Application {
     /**
      * The background color of the JavaFX window.
      */
-    public final static Color WINDOW_BACKGROUND_COLOR = Color.BLACK;
+    final static Color WINDOW_BACKGROUND_COLOR = Color.BLACK;
+
+    private Environment environment = new Environment();
+
+    private Overlay overlay = new Overlay();
+
+    private Group backgroundDecorations = BackgroundStar.generateStars();
 
     /**
      * Displays the scene in the window.
@@ -39,16 +46,13 @@ public class Driver extends Application {
      */
     public void start(Stage primaryStage) {
 
-        Group backgroundDecorations = BackgroundStar.generateStars();
+        environment.generateBodies();
 
-        Overlay overlay = new Overlay();
         overlay.createHUD();
 
-        Star star = new Star();
+        Group bodies = environment.generateGroupAllBodiesShapes();
 
-        Shape starShape = star.getShape();
-
-        Group root = new Group(overlay.getHudGroup(), starShape, backgroundDecorations);
+        Group root = new Group(overlay.getHudGroup(), bodies, backgroundDecorations);
 
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BACKGROUND_COLOR);
 
