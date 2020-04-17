@@ -35,6 +35,8 @@ public class Driver extends Application {
 
     private Environment environment = new Environment();
 
+    private Overlay overlay = new Overlay();
+
     private Group backgroundDecorations = BackgroundStar.generateStars();
 
     /**
@@ -44,14 +46,13 @@ public class Driver extends Application {
      */
     public void start(Stage primaryStage) {
 
-        Overlay overlay = new Overlay();
+        environment.generateBodies();
+
         overlay.createHUD();
 
-        Star star = new Star();
+        Group bodies = environment.generateGroupAllBodiesShapes();
 
-        Shape starShape = star.getShape();
-
-        Group root = new Group(overlay.getHudGroup(), starShape, backgroundDecorations);
+        Group root = new Group(overlay.getHudGroup(), bodies, backgroundDecorations);
 
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BACKGROUND_COLOR);
 

@@ -63,5 +63,8 @@ public class Environment {
         return bodyShapes;
     }
 
+    public void generateBodies() {
+        createStar();
+    }
 
 }
