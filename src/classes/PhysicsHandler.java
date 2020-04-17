@@ -31,6 +31,9 @@ public class PhysicsHandler {
      *
      * @param bodies the list of bodies assigned to this PhysicsHandler
      * @param dynamicBodies the list of dynamic bodies assigned to this PhysicsHandler
+     * @pre bodies must be non-null
+     * @pre dynamicBodies must be non-null
+     * @post instantiate a PhysicsHandler to handle the bodies provided
      */
     public PhysicsHandler(ArrayList<PhysicalBody> bodies, ArrayList<DynamicBody> dynamicBodies) {
         this.bodies = bodies;
@@ -44,6 +47,8 @@ public class PhysicsHandler {
 
     /**
      * Pause the simulation.
+     *
+     * @post pause the simulation
      */
     public void pause() {
         paused = true;
@@ -51,6 +56,8 @@ public class PhysicsHandler {
 
     /**
      * Unpause the simulation.
+     *
+     * @post unpause the simulation
      */
     public void unPause() {
         paused = false;
@@ -58,6 +65,8 @@ public class PhysicsHandler {
 
     /**
      * Toggle the pausing of the simulation.
+     *
+     * @post toggle the pausing of the simulation
      */
     public void togglePause() {
         paused = !paused;
@@ -65,6 +74,8 @@ public class PhysicsHandler {
 
     /**
      * Toggle collisions in the simulation.
+     *
+     * @post toggle collisions in the simulation
      */
     public void toggleCollisions() {
         collisionsOn = !collisionsOn;
@@ -72,6 +83,10 @@ public class PhysicsHandler {
 
     /**
      * Check for collisions between physical bodies, and simulate any found.
+     *
+     * @pre bodies must be non-null
+     * @post check collisions between physical bodies
+     * @post simulate any collisions found
      */
     public void checkCollisions() {
         if (!paused && collisionsOn) {
@@ -93,6 +108,9 @@ public class PhysicsHandler {
      *
      * @param first the first physical body involved in the collision
      * @param second the second physical body involved in the collision
+     * @pre first must be non-null
+     * @pre second must be non-null
+     * @post simulate a collision between first and second
      */
     public void simulateCollision(PhysicalBody first, PhysicalBody second) {
         System.out.println("You hear explosions or something.");
@@ -100,6 +118,9 @@ public class PhysicsHandler {
 
     /**
      * Move all bodies assigned to this handler, once.
+     *
+     * @pre dynamicBodies must be non-null
+     * @post move all bodies handled by this object
      */
     public void moveBodies() {
         for (DynamicBody body : dynamicBodies) {
@@ -127,6 +148,8 @@ public class PhysicsHandler {
      * Set the speed of the simulation.
      *
      * @param speed the new speed for the simulation
+     * @pre speed must be positive
+     * @post set the speed of the simulation
      */
     public void setSpeed(double speed) {
         this.speed = speed;
