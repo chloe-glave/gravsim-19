@@ -3,7 +3,6 @@ package Classes;
 import interfaces.Collectible;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
-import javafx.scene.shape.Shape;
 
 public class Coin implements Collectible {
     private int value;
@@ -18,7 +17,7 @@ public class Coin implements Collectible {
         Ellipse newCoin = new Ellipse(10, 7.5, 5, 5);
         this.value = 1;
         this.shape = newCoin;
-        this.shape.setFill(Color.YELLOW);
+        this.shape.setFill(Color.GOLD);
     }
 
     public void setValue(int value) {
