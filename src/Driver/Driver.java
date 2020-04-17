@@ -1,6 +1,6 @@
 package Driver;
 
-import Classes.Star;
+import classes.Star;
 import javafx.application.Application;
 import javafx.scene.shape.*;
 import javafx.stage.Stage;

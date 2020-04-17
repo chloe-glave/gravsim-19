@@ -1,4 +1,4 @@
-package Classes;
+package classes;
 
 import interfaces.*;
 import javafx.scene.shape.Shape;
