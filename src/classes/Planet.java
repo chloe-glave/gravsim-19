@@ -61,13 +61,18 @@ public class Planet implements DynamicBody {
      * @param vy the y direction velocity of the planet
      * @param destructible boolean determining if the planet can be destroyed
      */
-    public Planet(int radius, double mass,
-                  double vx, double vy, boolean destructible) {
+    public Planet(int radius, double mass, double vx, double vy, boolean destructible) {
         Random random = new Random();
         final int circleRadiusModifier = 250;
         final int colourBound = 255;
         final int shapeRadius = radius / circleRadiusModifier;
+        if (radius < circleRadiusModifier) {
+            radius = circleRadiusModifier;
+        }
         this.radius = radius;
+        if (mass < 1) {
+            mass = 1;
+        }
         this.mass = mass;
         this.shape = new Circle(random.nextInt(Driver.WINDOW_WIDTH
                 - (shapeRadius * 2)) + shapeRadius,
