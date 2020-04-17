@@ -1,6 +1,7 @@
 package classes;
 
-import interfaces.*;
+import interfaces.DynamicBody;
+import interfaces.PhysicalBody;
 import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
  * A class to process and run the physics simulation.  TODO: @pre and @post
  *
  * @author Kayden Schmidt
+ * @version 2020
  */
 public class PhysicsHandler {
     /**
