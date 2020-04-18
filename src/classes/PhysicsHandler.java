@@ -2,6 +2,7 @@ package classes;
 
 import interfaces.DynamicBody;
 import interfaces.PhysicalBody;
+import javafx.application.Platform;
 import javafx.scene.shape.Shape;
 
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -29,15 +30,18 @@ public class PhysicsHandler {
     private boolean paused;
     private double speed;
     private Thread thread;
+    private Environment environment;
 
     /**
      * Instantiate a PhysicsHandler.
      *
+     * @param environment the environment whose physics this is handling
      * @pre bodies must be non-null
      * @pre dynamicBodies must be non-null
      * @post instantiate a PhysicsHandler to handle the bodies provided
      */
-    public PhysicsHandler() {
+    public PhysicsHandler(Environment environment) {
+        this.environment = environment;
         this.bodies = new CopyOnWriteArrayList<>();
         this.dynamicBodies = new CopyOnWriteArrayList<>();
         this.interval = DEFAULT_INTERVAL;
@@ -95,7 +99,13 @@ public class PhysicsHandler {
 
     /* Simulate a collision between two physical bodies. */
     private void simulateCollision(PhysicalBody first, PhysicalBody second) {
-//        System.out.println("You hear explosions or something.");
+        Platform.runLater(() -> {
+            if (first.getMass() >= second.getMass()) {
+                environment.removeBody(second);
+            } else {
+                environment.removeBody(first);
+            }
+        });
     }
 
     /* Move all dynamic bodies assigned to this handler, once. */
