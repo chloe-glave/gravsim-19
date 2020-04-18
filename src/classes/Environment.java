@@ -32,6 +32,11 @@ public class Environment {
         coinAmount = 0;
     }
 
+    /**
+     * Sets the coin amount in the Environment.
+     *
+     * @param coinAmount The coin amount to be changed to.
+     */
     public void setCoinAmount(int coinAmount) {
         this.coinAmount = coinAmount;
     }
@@ -45,6 +50,11 @@ public class Environment {
         return bodyShapes;
     }
 
+    /**
+     * Gets the coin amount for the Environment.
+     *
+     * @return
+     */
     public int getCoinAmount() {
         return coinAmount;
     }
