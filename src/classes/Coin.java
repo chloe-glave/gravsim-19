@@ -32,9 +32,10 @@ public class Coin implements Collectible, PhysicalBody {
      * Constructs the Coin with default values.
      */
     public Coin() {
+        final int appearanceRange = 200;
         Ellipse newCoin = new Ellipse(new Random().nextInt(Driver.WINDOW_WIDTH),
-                new Random().nextInt(Driver.WINDOW_HEIGHT - 200),
-                5, 5);
+                new Random().nextInt(Driver.WINDOW_HEIGHT - appearanceRange),
+                5, 7);
         this.value = 1;
         this.shape = newCoin;
         this.shape.setFill(Color.GOLD);
@@ -78,31 +79,61 @@ public class Coin implements Collectible, PhysicalBody {
         return shape;
     }
 
+    /**
+     * Sets the x values of shape.
+     *
+     * @param x The value for it to be changed to.
+     */
     @Override
-    public double setX() {
-        return 0;
+    public void setX(double x) {
+        shape.setCenterX(x);
     }
 
+    /**
+     * Sets the y values of the shape.
+     *
+     * @param y The value for it to be changed to.
+     */
     @Override
-    public double setY() {
-        return 0;
+    public void setY(double y) {
+        shape.setCenterY(y);
     }
 
+    /**
+     * Gets the x values of the shape.
+     *
+     * @return The x value of the shape.
+     */
     @Override
     public double getX() {
         return shape.getCenterX();
     }
 
+    /**
+     * Gets the y value of the shape.
+     *
+     * @return The y value of the shapes.
+     */
     @Override
     public double getY() {
         return shape.getCenterY();
     }
 
+    /**
+     * Gets the mass of the Coin. A Coin does not have a mass.
+     *
+     * @return 0, equal to nothing.
+     */
     @Override
     public double getMass() {
         return 0;
     }
 
+    /**
+     * Gets the destructibility of a Coin. A coin does not have destructibility.
+     *
+     * @return False, equal to nothing. 
+     */
     @Override
     public boolean getDestructible() {
         return false;
