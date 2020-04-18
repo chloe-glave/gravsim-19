@@ -27,14 +27,14 @@ public class PhysicsHandler {
      */
     public static final double GRAVITATIONAL_CONSTANT = 0.2;
 
-    private long interval;
-    private CopyOnWriteArrayList<DynamicBody> dynamicBodies; // 1/2 TYPES OF COLLECTIONS
-    private CopyOnWriteArrayList<PhysicalBody> bodies;
+    private final long interval;
+    private final CopyOnWriteArrayList<DynamicBody> dynamicBodies; // 1/2 TYPES OF COLLECTIONS
+    private final CopyOnWriteArrayList<PhysicalBody> bodies;
     private boolean collisionsOn;
     private boolean paused;
     private double speed;
-    private Thread thread;
-    private Environment environment;
+    private final Thread thread;
+    private final Environment environment;
 
     /**
      * Instantiate a PhysicsHandler.
