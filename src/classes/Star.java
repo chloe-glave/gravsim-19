@@ -38,7 +38,7 @@ public class Star implements StaticBody {
      * @param destructible If the Star is destructible or not.
      * @param colour The colour of the Star.
      **/
-    public Star(int radius, double mass, boolean destructible, Color colour) {
+    public Star(int radius, double mass, boolean destructible) {
         final int circleRadiusModifier = 500;
         final int shapeRadius = radius / circleRadiusModifier;
         final int maxYSpawnRange = 640;
@@ -62,18 +62,7 @@ public class Star implements StaticBody {
      * Constructs a Star object with default values.
      */
     public Star() {
-        final int sunRadius = 15000;
-        final int circleRadiusModifier = 500;
-        final int shapeRadius = sunRadius / circleRadiusModifier;
-        final int maxYSpawnRange = 640;
-        final double sunsMass = 19.89;
-        this.radius = sunRadius;
-        this.mass = sunsMass;
-        this.shape = new Circle(random.nextInt(Driver.WINDOW_WIDTH
-                - (shapeRadius * 2)) + shapeRadius,
-                random.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius,
-                shapeRadius, Color.YELLOW);
-        this.destructible = true;
+        this(15000, 19.89, true);
     }
 
     /**
