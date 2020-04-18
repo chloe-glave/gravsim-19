@@ -45,6 +45,7 @@ public class Planet implements DynamicBody {
      * Constructs a planet with default values.
      */
     public Planet() {
+        final double velocityModifier = 4.0;
         final int circleRadiusModifier = 500;
         final int planetsRadiusBound = 6000;
         final int planetMassModifier = 1000;
@@ -60,8 +61,8 @@ public class Planet implements DynamicBody {
                 RANDOM.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius, shapeRadius,
                 Color.rgb(RANDOM.nextInt(colourBound),
                         RANDOM.nextInt(colourBound), RANDOM.nextInt(colourBound)));
-        this.vx = 0;
-        this.vy = 0;
+        this.vx = RANDOM.nextDouble() * velocityModifier;
+        this.vy = RANDOM.nextDouble() * velocityModifier;
         destructible = true;
     }
 

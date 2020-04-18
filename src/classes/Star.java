@@ -62,7 +62,7 @@ public class Star implements StaticBody {
      * Constructs a Star object with default values.
      */
     public Star() {
-        final int sunRadius = 9999;
+        final int sunRadius = 15000;
         final int circleRadiusModifier = 500;
         final int shapeRadius = sunRadius / circleRadiusModifier;
         final int maxYSpawnRange = 640;
