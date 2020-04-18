@@ -17,6 +17,11 @@ public class Environment {
     private static PhysicsHandler simulator;
     private Group bodyShapes;
 
+    /**
+     * Accesses the bodyShapes Group.
+     *
+     * @return bodyShapes.
+     */
     public Group getBodyShapes() {
         return bodyShapes;
     }
@@ -58,14 +63,6 @@ public class Environment {
         bodyShapes.getChildren().add(star.getShape());
 
         return star;
-    }
-
-    /**
-     * Creates objects and adds them to the Bodies ArrayList to be used.
-     */
-    public void generateBodies() { // todo: do we still need this? creates one default planet and star
-        createStar();
-        createPlanet();
     }
 
 }
