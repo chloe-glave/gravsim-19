@@ -113,20 +113,24 @@ public class Planet implements DynamicBody {
         this.destructible = destructible;
     }
 
+    /* Generates the X position for the Planet, randomly. */
     private static double generateXPosition(int shapeRadius) {
         return RANDOM.nextInt(Driver.WINDOW_WIDTH - (shapeRadius * 2)) + shapeRadius;
     }
 
+    /* Generates the Y position for the Planet, randomly. */
     private static double generateYPosition(int shapeRadius) {
         final int maxYSpawnRange = 640;
         return RANDOM.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius;
     }
 
+    /* Generates the velocity for the Planet, randomly. */
     private static double generateVelocity() {
         final double velocityModifier = 4.0;
         return RANDOM.nextDouble() * velocityModifier;
     }
 
+    /* Generates the radius for the Planet, randomly. */
     private static int generateRadius() {
         final int planetsRadiusBound = 6000;
         return RANDOM.nextInt(planetsRadiusBound) + planetsRadiusBound;
