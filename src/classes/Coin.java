@@ -118,6 +118,12 @@ public class Coin implements Collectible, PhysicalBody {
         return false;
     }
 
+    /**
+     * Converts the attributes in the class into a String object and
+     * displays them in a informative manner.
+     *
+     * @return A String representation of the attributes within Coin.
+     */
     @Override
     public String toString() {
         return "Coin{" +
@@ -125,6 +131,17 @@ public class Coin implements Collectible, PhysicalBody {
                 '}';
     }
 
+    /**
+     * Checks if the object passed into the method is:
+     * 1. Not null.
+     * 2. Same object (Address-wise).
+     * 3. The same object type.
+     * 4. Has the same values within.
+     *
+     * @param o The value being compared with. It is an Object type value.
+     * @return A boolean signifying if the object passed into method is the
+     * same as what it being checked against.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -133,6 +150,12 @@ public class Coin implements Collectible, PhysicalBody {
         return Objects.equals(getShape(), coin.getShape());
     }
 
+    /**
+     * Creates the hashcode for each instantiated object.
+     * This hashcode will be based on the attributes in the object.
+     *
+     * @return The hashcode for the current object.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(getShape());
