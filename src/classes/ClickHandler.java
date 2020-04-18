@@ -21,7 +21,7 @@ public class ClickHandler implements EventHandler<MouseEvent> {
      * @param mouseEvent The mouseEvent passed in.
      */
     @Override
-    public void handle(MouseEvent mouseEvent) { // todo: @Kayden add whatever click stuff u want
+    public void handle(MouseEvent mouseEvent) {
         double clickX = mouseEvent.getX();
         double clickY = mouseEvent.getY();
 

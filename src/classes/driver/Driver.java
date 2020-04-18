@@ -4,9 +4,11 @@ import classes.ClickHandler;
 import classes.Environment;
 import classes.Overlay;
 import javafx.application.Application;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.text.Text;
 import javafx.scene.paint.Color;
 import javafx.scene.input.MouseEvent;
 
@@ -32,7 +34,7 @@ public class Driver extends Application {
      */
     public static final int WINDOW_HEIGHT = 720;
 
-    /**
+    /*
      * The background color of the JavaFX window.
      */
     private static final Color WINDOW_BACKGROUND_COLOR = Color.BLACK;
@@ -45,7 +47,7 @@ public class Driver extends Application {
 
     private ClickHandler clickHandler;
 
-    /**
+    /*
      * Instantiates variables and starts up event handlers.
      */
     private void setUp() {
@@ -61,6 +63,27 @@ public class Driver extends Application {
         environment.generateCoins();
     }
 
+    /*
+     * Creates tutorial text for first time users to help them understand playing the game.
+     */
+    private Group createTutorialText() {
+        Text leftText = new Text();
+        leftText.setText("Gravity Simulator");
+        leftText.setX(80.0);
+        leftText.setY(690.0);
+        leftText.setFont(Font.font(24.0));
+
+        Text rightText = new Text();
+        rightText.setText("Create Stars with Planets to orbit them!" +
+                "\nTry to collect all the coins using your planets!");
+        rightText.setX(730.0);
+        rightText.setY(670.0);
+        rightText.setFont(Font.font(16.0));
+
+        return new Group(leftText, rightText);
+
+    }
+
     /**
      * Displays the scene in the window.
      *
@@ -71,7 +94,7 @@ public class Driver extends Application {
         setUp();
 
         Group root = new Group(backgroundDecorations, environment.getBodyShapes(),
-                overlay.getHudGroup());
+                overlay.getHudGroup(), createTutorialText());
 
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BACKGROUND_COLOR);
 
