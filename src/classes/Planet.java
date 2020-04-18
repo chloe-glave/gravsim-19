@@ -21,14 +21,14 @@ import java.util.Random;
 public class Planet implements DynamicBody {
 
     /* The radius is stored in kilometers(km) */
-    private int radius;
+    private final int radius;
 
     /* Mass stored in 10^24 kilograms (kg).
     * If mass = 0.35 then the mass of that planet would be 3.5 * 10^23 */
     private final double mass;
 
     /* The shape of the planet */
-    private Circle shape;
+    private final Circle shape;
 
     /* The velocity of the planets x direction */
     private double vx;
@@ -37,13 +37,14 @@ public class Planet implements DynamicBody {
     private double vy;
 
     /* A boolean of whether the planet is destructible */
-    private boolean destructible;
+    private final boolean destructible;
+
+    private static final Random random = new Random();
 
     /**
      * Constructs a planet with default values.
      */
     public Planet() {
-        Random random = new Random();
         final int circleRadiusModifier = 500;
         final int earthsRadius = 6371;
         final int shapeRadius = earthsRadius / circleRadiusModifier;
@@ -71,7 +72,6 @@ public class Planet implements DynamicBody {
      * @param destructible boolean determining if the planet can be destroyed
      */
     public Planet(int radius, double mass, double vx, double vy, boolean destructible) {
-        Random random = new Random();
         final int circleRadiusModifier = 500;
         final int colourBound = 255;
         final int shapeRadius = radius / circleRadiusModifier;
@@ -175,11 +175,21 @@ public class Planet implements DynamicBody {
         return shape;
     }
 
+    /**
+     * Sets the x values of shape.
+     *
+     * @param x The value for it to be changed to.
+     */
     @Override
     public void setX(double x) {
         shape.setCenterX(x);
     }
 
+    /**
+     * Sets the y values of shape.
+     *
+     * @param y The value for it to be changed to.
+     */
     @Override
     public void setY(double y) {
         shape.setCenterX(y);

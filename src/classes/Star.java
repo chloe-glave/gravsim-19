@@ -115,11 +115,21 @@ public class Star implements StaticBody {
         return shape;
     }
 
+    /**
+     * Sets the x values of shape.
+     *
+     * @param x The value for it to be changed to.
+     */
     @Override
     public void setX(double x) {
         shape.setCenterX(x);
     }
 
+    /**
+     * Sets the y values of the shape.
+     *
+     * @param y The value for it to be changed to.
+     */
     @Override
     public void setY(double y) {
         shape.setCenterY(y);
