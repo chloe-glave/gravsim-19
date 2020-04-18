@@ -1,5 +1,6 @@
 package classes;
 
+import classes.driver.Driver;
 import interfaces.SpatialEntity; // INTERFACES WITH IS-A RELATIONSHIPS
 import javafx.scene.Group;
 
@@ -105,11 +106,10 @@ public class Environment {
             System.out.printf("Current coin amount is now: %d\n",
                     getCoinAmount() + 1);
             setCoinAmount(getCoinAmount() + 1);
+            Driver.updateScoreText("Score: " + getCoinAmount());
         }
         bodies.remove(body);
         bodyShapes.getChildren().remove(body.getShape());
     }
-
-
 
 }

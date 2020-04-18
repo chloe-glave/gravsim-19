@@ -47,6 +47,12 @@ public class Driver extends Application {
 
     private ClickHandler clickHandler;
 
+    private Text leftText;
+
+    private Text rightText;
+
+    private static Text scoreText;
+
     /**
      * Instantiates variables and starts up event handlers.
      */
@@ -56,6 +62,10 @@ public class Driver extends Application {
         backgroundDecorations = BackgroundStar.generateStars();
         clickHandler = new ClickHandler();
 
+        leftText = new Text();
+        rightText = new Text();
+        scoreText = new Text();
+
         overlay.createHUD();
         overlay.getSpawnButtonPlanet().setOnAction(click -> environment.createPlanet());
         overlay.getSpawnButtonStar().setOnAction(click -> environment.createStar());
@@ -64,21 +74,28 @@ public class Driver extends Application {
     }
 
     private Group createTutorialText() {
-        Text leftText = new Text();
         leftText.setText("Gravity Simulator");
         leftText.setX(80.0);
         leftText.setY(690.0);
         leftText.setFont(Font.font(24.0));
 
-        Text rightText = new Text();
         rightText.setText("Create Stars with Planets to orbit them!" +
                 "\nTry to collect all the coins using your planets!");
         rightText.setX(730.0);
         rightText.setY(670.0);
         rightText.setFont(Font.font(16.0));
 
-        return new Group(leftText, rightText);
+        scoreText.setText("Score: 0");
+        scoreText.setX(490.0);
+        scoreText.setY(690.0);
+        scoreText.setFont(Font.font(24.0));
 
+        return new Group(leftText, rightText, scoreText);
+
+    }
+
+    public static void updateScoreText(String newText) {
+        scoreText.setText(newText);
     }
 
     /**
