@@ -8,7 +8,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.rules.*;
 
-public class PlanetTest {
+public class PlanetTest { // SUITE OF UNIT TESTS
 
     private Planet defaultPlanet;
     private Planet testPlanet;
