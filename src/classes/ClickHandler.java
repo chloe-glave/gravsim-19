@@ -15,6 +15,11 @@ import javafx.scene.input.MouseEvent;
  */
 public class ClickHandler implements EventHandler<MouseEvent> {
 
+    /**
+     * Used to handle mouse-click events.
+     *
+     * @param mouseEvent The mouseEvent passed in.
+     */
     @Override
     public void handle(MouseEvent mouseEvent) { // todo: @Kayden add whatever click stuff u want
         double clickX = mouseEvent.getX();
