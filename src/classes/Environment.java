@@ -67,4 +67,14 @@ public class Environment {
         }
     }
 
+    /**
+     * Removes a given SpatialEntity from the bodies ArrayList and from the screen display.
+     *
+     * @param body the SpatialEntity (Body) to remove.
+     */
+    public void removeBody(SpatialEntity body) {
+        bodies.remove(body);
+        bodyShapes.getChildren().remove(body.getShape());
+    }
+
 }
