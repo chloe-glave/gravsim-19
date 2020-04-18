@@ -14,6 +14,12 @@ import javafx.scene.input.MouseEvent;
  * @version 2020
  */
 public class ClickHandler implements EventHandler<MouseEvent> {
+    private Environment environment;
+
+    public ClickHandler(Environment environment) {
+        super();
+        this.environment = environment;
+    }
 
     /**
      * Used to handle mouse-click events.
@@ -25,7 +31,16 @@ public class ClickHandler implements EventHandler<MouseEvent> {
         double clickX = mouseEvent.getX();
         double clickY = mouseEvent.getY();
 
-        System.out.println("mouse click detected! " + clickX + " " + clickY);
+        environment.createPlanet(clickX, clickY);
     }
 
+    /**
+     * Generate a String representation of the ClickHandler.
+     *
+     * @return a String representation of the ClickHandler
+     */
+    @Override
+    public String toString() {
+        return "ClickHandler{}";
+    }
 }
