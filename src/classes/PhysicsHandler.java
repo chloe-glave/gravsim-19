@@ -4,12 +4,16 @@ import interfaces.DynamicBody;
 import interfaces.PhysicalBody;
 import javafx.scene.shape.Shape;
 
-import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * A class to process and run the physics simulation.
  *
  * @author Kayden Schmidt
+ * @author Janelle Kwok
+ * @author Chloe Glave
+ * @author Keegan Maundrell
+ *
  * @version 2020
  */
 public class PhysicsHandler {
@@ -20,11 +24,11 @@ public class PhysicsHandler {
     /**
      * The coefficient for gravitational acceleration.
      */
-    public static final double GRAVITATIONAL_CONSTANT = 0.0002;
+    public static final double GRAVITATIONAL_CONSTANT = 0.2;
 
     private long interval;
-    private ArrayList<DynamicBody> dynamicBodies;
-    private ArrayList<PhysicalBody> bodies;
+    private CopyOnWriteArrayList<DynamicBody> dynamicBodies;
+    private CopyOnWriteArrayList<PhysicalBody> bodies;
     private boolean collisionsOn;
     private boolean paused;
     private double speed;
@@ -38,8 +42,8 @@ public class PhysicsHandler {
      * @post instantiate a PhysicsHandler to handle the bodies provided
      */
     public PhysicsHandler() {
-        this.bodies = new ArrayList<>();
-        this.dynamicBodies = new ArrayList<>();
+        this.bodies = new CopyOnWriteArrayList<>();
+        this.dynamicBodies = new CopyOnWriteArrayList<>();
         this.interval = DEFAULT_INTERVAL;
         this.speed = 1.0;
         this.collisionsOn = true;
@@ -95,7 +99,7 @@ public class PhysicsHandler {
 
     /* Simulate a collision between two physical bodies. */
     private void simulateCollision(PhysicalBody first, PhysicalBody second) {
-        System.out.println("You hear explosions or something.");
+//        System.out.println("You hear explosions or something.");
     }
 
     /* Move all dynamic bodies assigned to this handler, once. */
@@ -112,8 +116,16 @@ public class PhysicsHandler {
                 if (body != otherBody) {
                     double deltaX = otherBody.getX() - body.getX();
                     double deltaY = otherBody.getY() - body.getY();
-                    body.addVx(otherBody.getMass() * GRAVITATIONAL_CONSTANT * deltaX);
-                    body.addVy(otherBody.getMass() * GRAVITATIONAL_CONSTANT * deltaY);
+                    double deltaTotal = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                    if (deltaTotal < 1) {
+                        deltaTotal = 1;
+                    }
+                    deltaX /= deltaTotal;
+                    deltaY /= deltaTotal;
+                    body.addVx(otherBody.getMass() * GRAVITATIONAL_CONSTANT
+                            / deltaTotal * deltaX);
+                    body.addVy(otherBody.getMass() * GRAVITATIONAL_CONSTANT
+                            / deltaTotal * deltaY);
                 }
             }
         }
