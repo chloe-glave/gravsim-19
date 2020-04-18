@@ -87,7 +87,7 @@ public class Driver extends Application {
         rightText.setText("Create Stars with Planets to orbit them!"
                 + "\nTry to collect all the coins using your planets!");
         rightText.setX(730.0);
-        rightText.setY(670.0);
+        rightText.setY(675.0);
         rightText.setFont(Font.font(16.0));
 
         scoreText.setText("Score: 0");
