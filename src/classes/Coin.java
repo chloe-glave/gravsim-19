@@ -20,7 +20,7 @@ import java.util.Random;
  */
 public class Coin implements Collectible, PhysicalBody {
     /* The value of the Coin */
-    private static final int value = 1;
+    private static final int VALUE = 1;
     /* The shape of the Coin */
     private Ellipse shape;
 
@@ -53,7 +53,7 @@ public class Coin implements Collectible, PhysicalBody {
      */
     @Override
     public int getValue() {
-        return value;
+        return VALUE;
     }
 
     /**
