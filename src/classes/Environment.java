@@ -20,6 +20,7 @@ public class Environment {
     private static ArrayList<SpatialEntity> bodies;
     private static PhysicsHandler simulator;
     private Group bodyShapes;
+    private int coinAmount;
 
     /**
      * Constructs an Environment.
@@ -28,6 +29,11 @@ public class Environment {
         bodies = new ArrayList<>();
         simulator = new PhysicsHandler(this);
         bodyShapes = new Group();
+        coinAmount = 0;
+    }
+
+    public void setCoinAmount(int coinAmount) {
+        this.coinAmount = coinAmount;
     }
 
     /**
@@ -37,6 +43,10 @@ public class Environment {
      */
     public Group getBodyShapes() {
         return bodyShapes;
+    }
+
+    public int getCoinAmount() {
+        return coinAmount;
     }
 
     /**
@@ -61,8 +71,11 @@ public class Environment {
         bodyShapes.getChildren().add(star.getShape());
     }
 
+    /**
+     * Randomly generates and places coins in the JavaFX environment.
+     */
     public void generateCoins() {
-        final int numberOfCoins = 5;
+        final int numberOfCoins = 10;
         for (int index = 0; index < numberOfCoins; index++) {
             Coin coin = new Coin();
             bodies.add(coin);
@@ -78,8 +91,15 @@ public class Environment {
      * @param body the SpatialEntity (Body) to remove.
      */
     public void removeBody(SpatialEntity body) {
+        if (body.getClass().equals(Coin.class)) {
+            System.out.printf("Current coin amount is now: %d\n",
+                    getCoinAmount() + 1);
+            setCoinAmount(getCoinAmount() + 1);
+        }
         bodies.remove(body);
         bodyShapes.getChildren().remove(body.getShape());
     }
+
+
 
 }

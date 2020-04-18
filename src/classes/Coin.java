@@ -20,20 +20,9 @@ import java.util.Random;
  */
 public class Coin implements Collectible, PhysicalBody {
     /* The value of the Coin */
-    private int value;
+    private static final int value = 1;
     /* The shape of the Coin */
     private Ellipse shape;
-
-    /**
-     * Constructs a Coin object.
-     *
-     * @param value The value of the Coin.
-     * @param shape The Shape of the Coin.
-     */
-    public Coin(int value, Ellipse shape) {
-        this.value = value;
-        this.shape = shape;
-    }
 
     /**
      * Constructs the Coin with default values.
@@ -42,21 +31,10 @@ public class Coin implements Collectible, PhysicalBody {
         final int appearanceRange = 200;
         final int xRadius = 5;
         final int yRadius = 7;
-        Ellipse newCoin = new Ellipse(new Random().nextInt(Driver.WINDOW_WIDTH),
+        this.shape = new Ellipse(new Random().nextInt(Driver.WINDOW_WIDTH),
                 new Random().nextInt(Driver.WINDOW_HEIGHT - appearanceRange),
                 xRadius, yRadius);
-        this.value = 1;
-        this.shape = newCoin;
         this.shape.setFill(Color.GOLD);
-    }
-
-    /**
-     * Sets the value of the Coin.
-     *
-     * @param value The value to be set.
-     */
-    public void setValue(int value) {
-        this.value = value;
     }
 
     /**
