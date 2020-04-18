@@ -105,9 +105,9 @@ public class PhysicsHandler {
     private void simulateCollision(PhysicalBody first, PhysicalBody second) {
         Platform.runLater(() -> {
             if (first.getMass() >= second.getMass()) {
-                environment.removeBody(second);
+                removeBody(second);
             } else {
-                environment.removeBody(first);
+                removeBody(first);
             }
         });
     }
@@ -193,6 +193,7 @@ public class PhysicsHandler {
      * @post remove the provided body from the ArrayList of bodies being handled
      */
     public void removeBody(PhysicalBody body) {
+        environment.removeBody(body);
         this.bodies.remove(body);
         if (body instanceof DynamicBody) {
             this.dynamicBodies.remove(body);
