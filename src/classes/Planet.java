@@ -45,57 +45,91 @@ public class Planet implements DynamicBody {
      * Constructs a planet with default values.
      */
     public Planet() {
-        final double velocityModifier = 4.0;
-        final int circleRadiusModifier = 500;
-        final int planetsRadiusBound = 6000;
-        final int planetMassModifier = 1000;
-        int planetsRadius = RANDOM.nextInt(planetsRadiusBound) + planetsRadiusBound;
-        final int shapeRadius = planetsRadius / circleRadiusModifier;
-        final double planetsMass = (planetsRadius * 1.0) / planetMassModifier;
-        final int maxYSpawnRange = 640;
-        final int colourBound = 255;
-        this.radius = planetsRadius;
-        this.mass = planetsMass;
-        this.shape = new Circle(RANDOM.nextInt(Driver.WINDOW_WIDTH
-                - (shapeRadius * 2)) + shapeRadius,
-                RANDOM.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius, shapeRadius,
-                Color.rgb(RANDOM.nextInt(colourBound),
-                        RANDOM.nextInt(colourBound), RANDOM.nextInt(colourBound)));
-        this.vx = RANDOM.nextDouble() * velocityModifier;
-        this.vy = RANDOM.nextDouble() * velocityModifier;
-        destructible = true;
+        this(generateRadius(), generateVelocity(), generateVelocity(), true);
     }
 
     /**
-     * Constructs a planet with an assigned shape.
+     * Constructs a planet with default values and x, y positions.
+     *
+     * @param xPosition the x position for the planet
+     * @param yPosition the y position for the planet
+     */
+    public Planet(double xPosition, double yPosition) {
+        this(generateRadius(), generateVelocity(), generateVelocity(), true, xPosition, yPosition);
+    }
+
+    /**D
+     * Constructs a planet.
+     *
      * @param radius the radius of the planet stored in km
-     * @param mass the mass of the planet stored in 10^24 kg
      * @param vx the x direction velocity of the planet
      * @param vy the y direction velocity of the planet
      * @param destructible boolean determining if the planet can be destroyed
      */
-    public Planet(int radius, double mass, double vx, double vy, boolean destructible) {
+    public Planet(int radius, double vx, double vy, boolean destructible) {
         final int circleRadiusModifier = 500;
         final int colourBound = 255;
         final int shapeRadius = radius / circleRadiusModifier;
-        final int maxYSpawnRange = 640;
-        final double minMassValue = 6.0;
+        final int planetMassModifier = 1000;
         if (radius < circleRadiusModifier) {
             radius = circleRadiusModifier;
         }
         this.radius = radius;
-        if (mass < 0.0) {
-            mass = minMassValue;
-        }
-        this.mass = mass;
-        this.shape = new Circle(RANDOM.nextInt(Driver.WINDOW_WIDTH
-                - (shapeRadius * 2)) + shapeRadius,
-                RANDOM.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius,
+        this.mass = (radius * 1.0) / planetMassModifier;
+        this.shape = new Circle(generateXPosition(shapeRadius), generateYPosition(shapeRadius),
                 shapeRadius, Color.rgb(RANDOM.nextInt(colourBound),
                 RANDOM.nextInt(colourBound), RANDOM.nextInt(colourBound)));
         this.vx = vx;
         this.vy = vy;
         this.destructible = destructible;
+    }
+
+    /**
+     * Constructs a planet with an assigned position.
+     *
+     * @param radius the radius of the planet stored in km
+     * @param vx the x direction velocity of the planet
+     * @param vy the y direction velocity of the planet
+     * @param destructible boolean determining if the planet can be destroyed
+     * @param xPosition the x position for the planet
+     * @param yPosition the y position for the planet
+     */
+    public Planet(int radius, double vx, double vy, boolean destructible,
+                  double xPosition, double yPosition) {
+        final int circleRadiusModifier = 500;
+        final int colourBound = 255;
+        final int shapeRadius = radius / circleRadiusModifier;
+        final int planetMassModifier = 1000;
+        if (radius < circleRadiusModifier) {
+            radius = circleRadiusModifier;
+        }
+        this.radius = radius;
+        this.mass = (radius * 1.0) / planetMassModifier;
+        this.shape = new Circle(xPosition, yPosition,
+                shapeRadius, Color.rgb(RANDOM.nextInt(colourBound),
+                RANDOM.nextInt(colourBound), RANDOM.nextInt(colourBound)));
+        this.vx = vx;
+        this.vy = vy;
+        this.destructible = destructible;
+    }
+
+    private static double generateXPosition(int shapeRadius) {
+        return RANDOM.nextInt(Driver.WINDOW_WIDTH - (shapeRadius * 2)) + shapeRadius;
+    }
+
+    private static double generateYPosition(int shapeRadius) {
+        final int maxYSpawnRange = 640;
+        return RANDOM.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius;
+    }
+
+    private static double generateVelocity() {
+        final double velocityModifier = 4.0;
+        return RANDOM.nextDouble() * velocityModifier;
+    }
+
+    private static int generateRadius() {
+        final int planetsRadiusBound = 6000;
+        return RANDOM.nextInt(planetsRadiusBound) + planetsRadiusBound;
     }
 
     /**
