@@ -19,9 +19,6 @@ public class ClickHandler implements EventHandler<MouseEvent> {
     public ClickHandler(Environment environment) {
         super();
         this.environment = environment;
-        this.creatingLine = false;
-        this.initialX = 0;
-        this.initialY = 0.0;
     }
 
     /**
