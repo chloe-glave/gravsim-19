@@ -19,7 +19,7 @@ public class Environment {
 
     private static ArrayList<SpatialEntity> bodies;
     private static PhysicsHandler simulator;
-    private Group bodyShapes;
+    private final Group bodyShapes;
     private int coinAmount;
 
     /**
@@ -32,6 +32,11 @@ public class Environment {
         coinAmount = 0;
     }
 
+    /**
+     * Sets the coin amount in the Environment.
+     *
+     * @param coinAmount The coin amount to be changed to.
+     */
     public void setCoinAmount(int coinAmount) {
         this.coinAmount = coinAmount;
     }
@@ -45,6 +50,11 @@ public class Environment {
         return bodyShapes;
     }
 
+    /**
+     * Gets the coin amount for the Environment.
+     *
+     * @return The current amount of coins.
+     */
     public int getCoinAmount() {
         return coinAmount;
     }

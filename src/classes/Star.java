@@ -19,16 +19,27 @@ import java.util.Random;
  * @version 2020
  */
 public class Star implements StaticBody {
+
+    private static final Random RANDOM = new Random();
+
+    /* The radius of a default star */
+    private static final int STAR_RADIUS = 15000;
+
+    /* The mass of a default star */
+    private static final double STAR_MASS = 19.89;
+
     /* The radius for the Star in kilometers(km)*/
     private final int radius;
+
     /* The mass for the Star in 10^24 kilograms (kg)*/
     private final double mass;
+
     /* The display for Star. */
     private final Circle shape;
+
     /* Determines whether or not the Star is destructible. */
     private final boolean destructible;
 
-    private static final Random random = new Random();
 
     /**
      * Constructs a Star object with an assigned destructibility.
@@ -50,9 +61,9 @@ public class Star implements StaticBody {
             mass = minMassValue;
         }
         this.mass = mass;
-        this.shape = new Circle(random.nextInt(Driver.WINDOW_WIDTH
+        this.shape = new Circle(RANDOM.nextInt(Driver.WINDOW_WIDTH
                 - (shapeRadius * 2)) + shapeRadius,
-                random.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius,
+                RANDOM.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius,
                 shapeRadius, Color.YELLOW);
         this.destructible = destructible;
     }
@@ -61,18 +72,7 @@ public class Star implements StaticBody {
      * Constructs a Star object with default values.
      */
     public Star() {
-        final int sunRadius = 15000;
-        final int circleRadiusModifier = 500;
-        final int shapeRadius = sunRadius / circleRadiusModifier;
-        final int maxYSpawnRange = 640;
-        final double sunsMass = 19.89;
-        this.radius = sunRadius;
-        this.mass = sunsMass;
-        this.shape = new Circle(random.nextInt(Driver.WINDOW_WIDTH
-                - (shapeRadius * 2)) + shapeRadius,
-                random.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius,
-                shapeRadius, Color.YELLOW);
-        this.destructible = false;
+        this(STAR_RADIUS, STAR_MASS, true);
     }
 
     /**

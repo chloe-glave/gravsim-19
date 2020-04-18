@@ -16,9 +16,9 @@ import javafx.scene.input.MouseEvent;
 public class ClickHandler implements EventHandler<MouseEvent> {
 
     /**
-     * Detects the X and Y coordinates of a click in the window.
+     * Used to handle mouse-click events.
      *
-     * @param mouseEvent the mouse click.
+     * @param mouseEvent The mouseEvent passed in.
      */
     @Override
     public void handle(MouseEvent mouseEvent) {

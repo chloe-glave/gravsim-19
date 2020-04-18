@@ -37,7 +37,7 @@ public class Driver extends Application {
     /**
      * The background color of the JavaFX window.
      */
-    static final Color WINDOW_BACKGROUND_COLOR = Color.BLACK;
+    private static final Color WINDOW_BACKGROUND_COLOR = Color.BLACK;
 
     private Environment environment;
 
