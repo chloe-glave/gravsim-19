@@ -20,6 +20,8 @@ import java.util.Random;
  */
 public class Planet implements DynamicBody {
 
+    private static final Random RANDOM = new Random();
+
     /* The radius is stored in kilometers(km) */
     private final int radius;
 
@@ -39,25 +41,25 @@ public class Planet implements DynamicBody {
     /* A boolean of whether the planet is destructible */
     private final boolean destructible;
 
-    private static final Random random = new Random();
-
     /**
      * Constructs a planet with default values.
      */
     public Planet() {
         final int circleRadiusModifier = 500;
-        final int earthsRadius = 6371;
-        final int shapeRadius = earthsRadius / circleRadiusModifier;
-        final double earthsMass = 5.972;
+        final int planetsRadiusBound = 6000;
+        final int planetMassModifier = 1000;
+        int planetsRadius = RANDOM.nextInt(planetsRadiusBound) + planetsRadiusBound;
+        final int shapeRadius = planetsRadius / circleRadiusModifier;
+        final double planetsMass = (planetsRadius * 1.0) / planetMassModifier;
         final int maxYSpawnRange = 640;
         final int colourBound = 255;
-        this.radius = earthsRadius;
-        this.mass = earthsMass;
-        this.shape = new Circle(random.nextInt(Driver.WINDOW_WIDTH
+        this.radius = planetsRadius;
+        this.mass = planetsMass;
+        this.shape = new Circle(RANDOM.nextInt(Driver.WINDOW_WIDTH
                 - (shapeRadius * 2)) + shapeRadius,
-                random.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius, shapeRadius,
-                Color.rgb(random.nextInt(colourBound),
-                        random.nextInt(colourBound), random.nextInt(colourBound)));
+                RANDOM.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius, shapeRadius,
+                Color.rgb(RANDOM.nextInt(colourBound),
+                        RANDOM.nextInt(colourBound), RANDOM.nextInt(colourBound)));
         this.vx = 0;
         this.vy = 0;
         destructible = true;
@@ -85,11 +87,11 @@ public class Planet implements DynamicBody {
             mass = minMassValue;
         }
         this.mass = mass;
-        this.shape = new Circle(random.nextInt(Driver.WINDOW_WIDTH
+        this.shape = new Circle(RANDOM.nextInt(Driver.WINDOW_WIDTH
                 - (shapeRadius * 2)) + shapeRadius,
-                random.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius,
-                shapeRadius, Color.rgb(random.nextInt(colourBound),
-                        random.nextInt(colourBound), random.nextInt(colourBound)));
+                RANDOM.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius,
+                shapeRadius, Color.rgb(RANDOM.nextInt(colourBound),
+                RANDOM.nextInt(colourBound), RANDOM.nextInt(colourBound)));
         this.vx = vx;
         this.vy = vy;
         this.destructible = destructible;
