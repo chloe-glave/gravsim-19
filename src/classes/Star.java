@@ -20,13 +20,13 @@ import java.util.Random;
  */
 public class Star implements StaticBody {
     /* The radius for the Star in kilometers(km)*/
-    private int radius;
+    private final int radius;
     /* The mass for the Star in 10^24 kilograms (kg)*/
-    private double mass;
+    private final double mass;
     /* The display for Star. */
-    private Circle shape;
+    private final Circle shape;
     /* Determines whether or not the Star is destructible. */
-    private boolean destructible;
+    private final boolean destructible;
 
     private static final Random random = new Random();
 
