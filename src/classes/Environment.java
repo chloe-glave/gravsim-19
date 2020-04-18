@@ -5,6 +5,7 @@ import interfaces.SpatialEntity; // INTERFACES WITH IS-A RELATIONSHIPS
 import javafx.scene.Group;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Handles the simulation.
@@ -117,13 +118,32 @@ public class Environment {
      */
     public void removeBody(SpatialEntity body) {
         if (body.getClass().equals(Coin.class)) {
-            System.out.printf("Current coin amount is now: %d\n",
-                    getCoinAmount() + 1);
             setCoinAmount(getCoinAmount() + 1);
-            Driver.updateScoreText("Score: " + getCoinAmount());
+            Driver.updateScoreText(getCoinAmount());
         }
         bodies.remove(body);
         bodyShapes.getChildren().remove(body.getShape());
     }
 
+    @Override
+    public String toString() {
+        return "Environment{" +
+                "bodyShapes=" + bodyShapes +
+                ", coinAmount=" + coinAmount +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Environment)) return false;
+        Environment that = (Environment) o;
+        return getCoinAmount() == that.getCoinAmount() &&
+                Objects.equals(getBodyShapes(), that.getBodyShapes());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBodyShapes(), getCoinAmount());
+    }
 }

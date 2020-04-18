@@ -4,6 +4,8 @@ import classes.ClickHandler;
 import classes.Environment;
 import classes.Overlay;
 import javafx.application.Application;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.Group;
@@ -85,7 +87,7 @@ public class Driver extends Application {
         rightText.setText("Create Stars with Planets to orbit them!"
                 + "\nTry to collect all the coins using your planets!");
         rightText.setX(730.0);
-        rightText.setY(670.0);
+        rightText.setY(675.0);
         rightText.setFont(Font.font(16.0));
 
         scoreText.setText("Score: 0");
@@ -97,8 +99,13 @@ public class Driver extends Application {
 
     }
 
-    public static void updateScoreText(String newText) {
-        scoreText.setText(newText);
+    /**
+     * Mutates value of the scoreText on the screen.
+     *
+     * @param newValue the value to update the score to.
+     */
+    public static void updateScoreText(int newValue) {
+        scoreText.setText("Score: " + newValue);
     }
 
     /**
@@ -118,6 +125,7 @@ public class Driver extends Application {
         scene.addEventHandler(MouseEvent.MOUSE_CLICKED, clickHandler);
 
         primaryStage.setTitle("GRAVSIM-19");
+        primaryStage.getIcons().add(new Image("file:icon.png"));
         primaryStage.setScene(scene);
         primaryStage.show();
     }

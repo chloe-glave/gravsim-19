@@ -6,6 +6,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -152,5 +153,29 @@ public class Star implements StaticBody {
         return shape.getCenterY();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Star)) return false;
+        Star star = (Star) o;
+        return getRadius() == star.getRadius() &&
+                Double.compare(star.getMass(), getMass()) == 0 &&
+                getDestructible() == star.getDestructible() &&
+                Objects.equals(getShape(), star.getShape());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getRadius(), getMass(), getShape(), getDestructible());
+    }
+
+    @Override
+    public String toString() {
+        return "Star{" +
+                "radius=" + radius +
+                ", mass=" + mass +
+                ", shape=" + shape +
+                ", destructible=" + destructible +
+                '}';
+    }
 }

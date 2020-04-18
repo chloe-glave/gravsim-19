@@ -6,6 +6,7 @@ import interfaces.PhysicalBody;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -124,5 +125,25 @@ public class Coin implements Collectible, PhysicalBody {
     @Override
     public boolean getDestructible() {
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Coin{" +
+                "shape=" + shape +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Coin)) return false;
+        Coin coin = (Coin) o;
+        return Objects.equals(getShape(), coin.getShape());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getShape());
     }
 }
