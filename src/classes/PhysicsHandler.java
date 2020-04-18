@@ -10,6 +10,10 @@ import java.util.ArrayList;
  * A class to process and run the physics simulation.
  *
  * @author Kayden Schmidt
+ * @author Janelle Kwok
+ * @author Chloe Glave
+ * @author Keegan Maundrell
+ *
  * @version 2020
  */
 public class PhysicsHandler {

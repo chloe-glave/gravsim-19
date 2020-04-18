@@ -9,6 +9,10 @@ import java.util.ArrayList;
  * Handles the simulation.
  *
  * @author Chloe Glave
+ * @author Janelle Kwok
+ * @author Kayden Schmidt
+ * @author Keegan Maundrell
+ *
  * @version 2020
  */
 public class Environment {

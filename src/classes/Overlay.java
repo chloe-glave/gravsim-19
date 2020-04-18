@@ -11,6 +11,9 @@ import javafx.scene.shape.Rectangle;
  *
  * @author Chloe Glave
  * @author Janelle Kwok
+ * @author Kayden Schmidt
+ * @author Keegan Maundrell
+ *
  * @version 2020
  */
 public class Overlay {

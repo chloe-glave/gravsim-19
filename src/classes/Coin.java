@@ -10,6 +10,13 @@ import java.util.Random;
 
 /**
  * Simulates a collectible coin in the space simulation.
+ *
+ * @author Chloe Glave
+ * @author Janelle Kwok
+ * @author Kayden Schmidt
+ * @author Keegan Maundrell
+ *
+ * @version 2020
  */
 public class Coin implements Collectible, PhysicalBody {
     /* The value of the Coin */
