@@ -52,6 +52,8 @@ public class Driver extends Application {
 
         overlay.getSpawnButtonStar().setOnAction(click -> environment.createStar());
 
+        environment.generateCoins();
+
         Group root = new Group(backgroundDecorations, environment.getBodyShapes(), overlay.getHudGroup());
 
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BACKGROUND_COLOR);

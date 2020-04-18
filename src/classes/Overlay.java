@@ -14,7 +14,7 @@ import javafx.scene.shape.Rectangle;
  * @version 2020
  */
 public class Overlay {
-    private static final int RECTANGLE_BASE_Y = 640;
+    public static final int RECTANGLE_BASE_Y = 640;
     private static final int RECTANGLE_BASE_HEIGHT = Driver.WINDOW_HEIGHT - RECTANGLE_BASE_Y;
     private static final double RECTANGLE_FILL_X = 7.5;
     private static final double RECTANGLE_FILL_Y = 647.5;
