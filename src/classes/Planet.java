@@ -6,6 +6,8 @@ import interfaces.DynamicBody;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
+
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -70,7 +72,7 @@ public class Planet implements DynamicBody {
         this(generateRadius(), vx, vy, true, xPosition, yPosition);
     }
 
-    /**D
+    /**
      * Constructs a planet.
      *
      * @param radius the radius of the planet stored in km
@@ -125,20 +127,24 @@ public class Planet implements DynamicBody {
         this.destructible = destructible;
     }
 
+    /* Generates the X position for the Planet, randomly. */
     private static double generateXPosition(int shapeRadius) {
         return RANDOM.nextInt(Driver.WINDOW_WIDTH - (shapeRadius * 2)) + shapeRadius;
     }
 
+    /* Generates the Y position for the Planet, randomly. */
     private static double generateYPosition(int shapeRadius) {
         final int maxYSpawnRange = 640;
         return RANDOM.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius;
     }
 
+    /* Generates the velocity for the Planet, randomly. */
     private static double generateVelocity() {
         final double velocityModifier = 6.0;
         return RANDOM.nextDouble() * velocityModifier - (velocityModifier / 2);
     }
 
+    /* Generates the radius for the Planet, randomly. */
     private static int generateRadius() {
         final int planetsRadiusBound = 6000;
         return RANDOM.nextInt(planetsRadiusBound) + planetsRadiusBound;
@@ -262,6 +268,56 @@ public class Planet implements DynamicBody {
         return shape.getCenterY();
     }
 
+    /**
+     * Checks if the object passed into the method is:
+     * 1. Not null.
+     * 2. Same object (Address-wise).
+     * 3. The same object type.
+     * 4. Has the same values within.
+     *
+     * @param o The value being compared with. It is an Object type value.
+     * @return A boolean signifying if the object passed into method is the
+     * same as what it being checked against.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Planet planet = (Planet) o;
+        return radius == planet.radius &&
+                Double.compare(planet.mass, mass) == 0 &&
+                Double.compare(planet.vx, vx) == 0 &&
+                Double.compare(planet.vy, vy) == 0 &&
+                destructible == planet.destructible &&
+                Objects.equals(shape, planet.shape);
+    }
 
+    /**
+     * Creates the hashcode for each instantiated object.
+     * This hashcode will be based on the attributes in the object.
+     *
+     * @return The hashcode for the current object.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(radius, mass, shape, vx, vy, destructible);
+    }
 
+    /**
+     * Converts the attributes in the class into a String object and
+     * displays them in a informative manner.
+     *
+     * @return A String representation of the attributes within Planet.
+     */
+    @Override
+    public String toString() {
+        return "Planet{" +
+                "radius=" + radius +
+                ", mass=" + mass +
+                ", shape=" + shape +
+                ", vx=" + vx +
+                ", vy=" + vy +
+                ", destructible=" + destructible +
+                '}';
+    }
 }
