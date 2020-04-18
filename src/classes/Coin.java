@@ -39,15 +39,6 @@ public class Coin implements Collectible, PhysicalBody {
     }
 
     /**
-     * Sets the shape of the Coin.
-     *
-     * @param shape The shape to be set.
-     */
-    public void setShape(Ellipse shape) {
-        this.shape = shape;
-    }
-
-    /**
      * Gets the current value of the Coin.
      *
      * @return The value of the Coin.
