@@ -86,6 +86,16 @@ public class Coin implements Collectible, PhysicalBody {
     }
 
     @Override
+    public double setX() {
+        return 0;
+    }
+
+    @Override
+    public double setY() {
+        return 0;
+    }
+
+    @Override
     public double getX() {
         return shape.getCenterX();
     }
