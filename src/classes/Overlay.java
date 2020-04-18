@@ -75,7 +75,7 @@ public class Overlay {
 
         spawnButtonStar = new Button("Spawn Star");
         spawnButtonStar.setMaxSize(100, 150);
-        spawnButtonStar.setTranslateX(600.0);
+        spawnButtonStar.setTranslateX(625.0);
         spawnButtonStar.setTranslateY(665.75);
 
         hudGroup = new Group(rectangleBase, rectangleFill, spawnButtonPlanet, spawnButtonStar);
