@@ -57,7 +57,8 @@ public class Planet implements DynamicBody {
      * @param yPosition the y position for the planet
      */
     public Planet(double xPosition, double yPosition) {
-        this(generateRadius(), generateVelocity(), generateVelocity(), true, xPosition, yPosition);
+        this(generateRadius(), generateVelocity(), generateVelocity(),
+                true, xPosition, yPosition);
     }
 
     /**
