@@ -1,13 +1,17 @@
 package classes;
 
+import classes.driver.Driver;
 import interfaces.Collectible;
+import interfaces.PhysicalBody;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
+
+import java.util.Random;
 
 /**
  * Simulates a collectible coin in the space simulation.
  */
-public class Coin implements Collectible {
+public class Coin implements Collectible, PhysicalBody {
     /* The value of the Coin */
     private int value;
     /* The shape of the Coin */
@@ -28,7 +32,9 @@ public class Coin implements Collectible {
      * Constructs the Coin with default values.
      */
     public Coin() {
-        Ellipse newCoin = new Ellipse(10, 7.5, 5, 5);
+        Ellipse newCoin = new Ellipse(new Random().nextInt(Driver.WINDOW_WIDTH),
+                new Random().nextInt(Driver.WINDOW_HEIGHT - 200),
+                5, 5);
         this.value = 1;
         this.shape = newCoin;
         this.shape.setFill(Color.GOLD);
@@ -82,4 +88,13 @@ public class Coin implements Collectible {
         return shape.getCenterY();
     }
 
+    @Override
+    public double getMass() {
+        return 0;
+    }
+
+    @Override
+    public boolean getDestructible() {
+        return false;
+    }
 }

@@ -30,39 +30,41 @@ public class Environment {
      * Constructs an Environment.
      */
     public Environment() {
-        bodies = new ArrayList<SpatialEntity>();
+        bodies = new ArrayList<>();
         simulator = new PhysicsHandler();
         bodyShapes = new Group();
     }
 
     /**
      * Creates a Planet and adds it to the Environment's bodies ArrayList.
-     *
-     * @return the newly created Planet.
      */
-    public Planet createPlanet() {
+    public void createPlanet() {
         Planet planet = new Planet();
         bodies.add(planet);
         simulator.addBody(planet);
 
         bodyShapes.getChildren().add(planet.getShape());
-
-        return planet;
     }
 
     /**
      * Creates a Star and adds it to the Environment's bodies ArrayList.
-     *
-     * @return the newly created Star.
      */
-    public Star createStar() {
+    public void createStar() {
         Star star = new Star();
         bodies.add(star);
         simulator.addBody(star);
 
         bodyShapes.getChildren().add(star.getShape());
+    }
 
-        return star;
+    public void generateCoins() {
+        for (int index = 0; index < 5; index++) {
+            Coin coin = new Coin();
+            bodies.add(coin);
+            simulator.addBody(coin);
+
+            bodyShapes.getChildren().add(coin.getShape());
+        }
     }
 
 }
