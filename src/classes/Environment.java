@@ -1,6 +1,6 @@
 package classes;
 
-import interfaces.SpatialEntity;
+import interfaces.SpatialEntity; // INTERFACES WITH IS-A RELATIONSHIPS
 import javafx.scene.Group;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class Environment {
      * Constructs an Environment.
      */
     public Environment() {
-        bodies = new ArrayList<>();
+        bodies = new ArrayList<>(); // 2/2 TYPES OF COLLECTIONS
         simulator = new PhysicsHandler(this);
         bodyShapes = new Group();
     }
