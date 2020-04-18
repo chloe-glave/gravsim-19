@@ -132,7 +132,7 @@ public class Coin implements Collectible, PhysicalBody {
     /**
      * Gets the destructibility of a Coin. A coin does not have destructibility.
      *
-     * @return False, equal to nothing. 
+     * @return False, equal to nothing.
      */
     @Override
     public boolean getDestructible() {

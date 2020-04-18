@@ -25,7 +25,7 @@ public class Planet implements DynamicBody {
 
     /* Mass stored in 10^24 kilograms (kg).
     * If mass = 0.35 then the mass of that planet would be 3.5 * 10^23 */
-    private double mass;
+    private final double mass;
 
     /* The shape of the planet */
     private Circle shape;
@@ -173,6 +173,16 @@ public class Planet implements DynamicBody {
     @Override
     public Shape getShape() {
         return shape;
+    }
+
+    @Override
+    public void setX(double x) {
+        shape.setCenterX(x);
+    }
+
+    @Override
+    public void setY(double y) {
+        shape.setCenterX(y);
     }
 
     /**
