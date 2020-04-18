@@ -19,7 +19,7 @@ public class Environment {
 
     private static ArrayList<SpatialEntity> bodies;
     private static PhysicsHandler simulator;
-    private Group bodyShapes;
+    private final Group bodyShapes;
     private int coinAmount;
 
     /**
