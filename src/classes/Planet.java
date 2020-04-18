@@ -62,6 +62,18 @@ public class Planet implements DynamicBody {
     }
 
     /**
+     * Constructs a planet with default values, x, y positions, and x, y velocities.
+     *
+     * @param vx the x velocity for the planet
+     * @param vy the y velocity for the planet
+     * @param xPosition the x position for the planet
+     * @param yPosition the y position for the planet
+     */
+    public Planet(double vx, double vy, double xPosition, double yPosition) {
+        this(generateRadius(), vx, vy, true, xPosition, yPosition);
+    }
+
+    /**
      * Constructs a planet.
      *
      * @param radius the radius of the planet stored in km
@@ -129,8 +141,8 @@ public class Planet implements DynamicBody {
 
     /* Generates the velocity for the Planet, randomly. */
     private static double generateVelocity() {
-        final double velocityModifier = 4.0;
-        return RANDOM.nextDouble() * velocityModifier;
+        final double velocityModifier = 6.0;
+        return RANDOM.nextDouble() * velocityModifier - (velocityModifier / 2);
     }
 
     /* Generates the radius for the Planet, randomly. */
