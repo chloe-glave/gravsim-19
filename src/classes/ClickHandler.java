@@ -14,12 +14,7 @@ import javafx.scene.input.MouseEvent;
  * @version 2020
  */
 public class ClickHandler implements EventHandler<MouseEvent> {
-    private static final double VELOCITY_COEFFICIENT = 40.0;
-
     private Environment environment;
-    private boolean creatingLine;
-    private double initialX;
-    private double initialY;
 
     public ClickHandler(Environment environment) {
         super();
@@ -38,16 +33,8 @@ public class ClickHandler implements EventHandler<MouseEvent> {
     public void handle(MouseEvent mouseEvent) {
         double clickX = mouseEvent.getX();
         double clickY = mouseEvent.getY();
-        if (!creatingLine) {
-            this.initialX = clickX;
-            this.initialY = clickY;
-            creatingLine = true;
-        } else {
-            creatingLine = false;
 
-            environment.createPlanet((clickX - initialX) / VELOCITY_COEFFICIENT,
-                    (clickY - initialY) / VELOCITY_COEFFICIENT, clickX, clickY);
-        }
+        environment.createPlanet(clickX, clickY);
     }
 
     /**
