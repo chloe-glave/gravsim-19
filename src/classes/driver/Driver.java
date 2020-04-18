@@ -82,8 +82,8 @@ public class Driver extends Application {
         leftText.setY(690.0);
         leftText.setFont(Font.font(24.0));
 
-        rightText.setText("Create Stars with Planets to orbit them!" +
-                "\nTry to collect all the coins using your planets!");
+        rightText.setText("Create Stars with Planets to orbit them!"
+                + "\nTry to collect all the coins using your planets!");
         rightText.setX(730.0);
         rightText.setY(670.0);
         rightText.setFont(Font.font(16.0));
