@@ -40,9 +40,11 @@ public class Coin implements Collectible, PhysicalBody {
      */
     public Coin() {
         final int appearanceRange = 200;
+        final int xRadius = 5;
+        final int yRadius = 7;
         Ellipse newCoin = new Ellipse(new Random().nextInt(Driver.WINDOW_WIDTH),
                 new Random().nextInt(Driver.WINDOW_HEIGHT - appearanceRange),
-                5, 7);
+                xRadius, yRadius);
         this.value = 1;
         this.shape = newCoin;
         this.shape.setFill(Color.GOLD);
