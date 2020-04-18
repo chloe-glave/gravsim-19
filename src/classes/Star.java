@@ -1,20 +1,30 @@
 package classes;
 
+import classes.driver.Driver;
 import interfaces.StaticBody;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
+
+import java.util.Random;
 
 /**
  * Simulates a Star.
+ *
+ * @author Janelle Kwok
+ * @author Chloe Glave
+ * @author Kayden Schmidt
+ * @author Keegan Maundrell
+ *
+ * @version 2020
  */
 public class Star implements StaticBody {
-    /* The radius for the Star */
+    /* The radius for the Star in kilometers(km)*/
     private int radius;
-    /* The mass for the Star */
+    /* The mass for the Star in 10^24 kilograms (kg)*/
     private double mass;
     /* The display for Star. */
-    private Ellipse shape;
+    private Circle shape;
     /* Determines whether or not the Star is destructible. */
     private boolean destructible;
 
@@ -23,65 +33,47 @@ public class Star implements StaticBody {
      *
      * @param radius The radius of the star.
      * @param mass The mass of the star.
-     * @param shape The shape of the star. This will determine how it is displayed.
      * @param destructible If the Star is destructible or not.
      * @param colour The colour of the Star.
      **/
-    public Star(int radius, double mass, Ellipse shape, boolean destructible, Color colour) {
+    public Star(int radius, double mass, boolean destructible, Color colour) {
+        Random random = new Random();
+        final int circleRadiusModifier = 500;
+        final int shapeRadius = radius / circleRadiusModifier;
+        final int maxYSpawnRange = 640;
+        final double minMassValue = 0.01;
+        if (radius < circleRadiusModifier) {
+            radius = circleRadiusModifier;
+        }
         this.radius = radius;
+        if (mass < 0.0) {
+            mass = minMassValue;
+        }
         this.mass = mass;
-        this.shape = shape;
+        this.shape = new Circle(random.nextInt(Driver.WINDOW_WIDTH
+                - (shapeRadius * 2)) + shapeRadius,
+                random.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius,
+                shapeRadius, Color.YELLOW);
         this.destructible = destructible;
-        this.shape.setFill(colour);
-
     }
 
     /**
      * Constructs a Star object with default values.
      */
     public Star() {
-        Ellipse newShape = new Ellipse(520, 350, 20, 20);
-        this.radius = 5;
-        this.mass = 1.989000;
-        this.shape = newShape;
+        Random random = new Random();
+        final int sunRadius = 9999;
+        final int circleRadiusModifier = 500;
+        final int shapeRadius = sunRadius / circleRadiusModifier;
+        final int maxYSpawnRange = 640;
+        final double sunsMass = 1989000.0;
+        this.radius = sunRadius;
+        this.mass = sunsMass;
+        this.shape = new Circle(random.nextInt(Driver.WINDOW_WIDTH
+                - (shapeRadius * 2)) + shapeRadius,
+                random.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius,
+                shapeRadius, Color.YELLOW);
         this.destructible = true;
-        this.shape.setFill(Color.YELLOW);
-    }
-
-    /**
-     * Sets the radius of the Star object.
-     *
-     * @param radius The radius to be set.
-     */
-    public void setRadius(int radius) {
-        this.radius = radius;
-    }
-
-    /**
-     * Sets the mass of the Star object.
-     *
-     * @param mass The mass to be set.
-     */
-    public void setMass(double mass) {
-        this.mass = mass;
-    }
-
-    /**
-     * Sets the Ellipse shape of the Star object.
-     *
-     * @param shape The shape to be set.
-     */
-    public void setShape(Ellipse shape) {
-        this.shape = shape;
-    }
-
-    /**
-     * Sets the destructibility of the Star object.
-     *
-     * @param destructible The destructibility to be set.
-     */
-    public void setDestructible(boolean destructible) {
-        this.destructible = destructible;
     }
 
     /**
@@ -123,11 +115,19 @@ public class Star implements StaticBody {
         return shape;
     }
 
+    /**
+     * Gets the current x position of the star.
+     * @return the current x position
+     */
     @Override
     public double getX() {
         return shape.getCenterX();
     }
 
+    /**
+     * Gets the current y position of the star.
+     * @return the current y position
+     */
     @Override
     public double getY() {
         return shape.getCenterY();

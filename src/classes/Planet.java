@@ -8,7 +8,16 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import java.util.Random;
 
-
+/**
+ * Simulates a planet.
+ *
+ * @author Janelle Kwok
+ * @author Chloe Glave
+ * @author Kayden Schmidt
+ * @author Keegan Maundrell
+ *
+ * @version 2020
+ */
 public class Planet implements DynamicBody {
 
     /* The radius is stored in kilometers(km) */
@@ -67,12 +76,13 @@ public class Planet implements DynamicBody {
         final int colourBound = 255;
         final int shapeRadius = radius / circleRadiusModifier;
         final int maxYSpawnRange = 640;
+        final double minMassValue = 0.01;
         if (radius < circleRadiusModifier) {
             radius = circleRadiusModifier;
         }
         this.radius = radius;
         if (mass < 0.0) {
-            mass = 0.01;
+            mass = minMassValue;
         }
         this.mass = mass;
         this.shape = new Circle(random.nextInt(Driver.WINDOW_WIDTH
@@ -83,6 +93,14 @@ public class Planet implements DynamicBody {
         this.vx = vx;
         this.vy = vy;
         this.destructible = destructible;
+    }
+
+    /**
+     * Gets the radius of the planet.
+     * @return the radius of the planet
+     */
+    public int getRadius() {
+        return radius;
     }
 
     /**
