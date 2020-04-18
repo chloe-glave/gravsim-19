@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import java.util.Objects;
+
 /**
  * User-interface for the bottom portion of the screen - contains interactable buttons.
  *
@@ -79,4 +81,27 @@ public class Overlay {
         hudGroup = new Group(rectangleBase, rectangleFill, spawnButtonPlanet, spawnButtonStar);
     }
 
+    @Override
+    public String toString() {
+        return "Overlay{" +
+                "hudGroup=" + hudGroup +
+                ", spawnButtonPlanet=" + spawnButtonPlanet +
+                ", spawnButtonStar=" + spawnButtonStar +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Overlay)) return false;
+        Overlay overlay = (Overlay) o;
+        return Objects.equals(getHudGroup(), overlay.getHudGroup()) &&
+                Objects.equals(getSpawnButtonPlanet(), overlay.getSpawnButtonPlanet()) &&
+                Objects.equals(getSpawnButtonStar(), overlay.getSpawnButtonStar());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getHudGroup(), getSpawnButtonPlanet(), getSpawnButtonStar());
+    }
 }

@@ -5,6 +5,7 @@ import interfaces.SpatialEntity; // INTERFACES WITH IS-A RELATIONSHIPS
 import javafx.scene.Group;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Handles the simulation.
@@ -112,4 +113,25 @@ public class Environment {
         bodyShapes.getChildren().remove(body.getShape());
     }
 
+    @Override
+    public String toString() {
+        return "Environment{" +
+                "bodyShapes=" + bodyShapes +
+                ", coinAmount=" + coinAmount +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Environment)) return false;
+        Environment that = (Environment) o;
+        return getCoinAmount() == that.getCoinAmount() &&
+                Objects.equals(getBodyShapes(), that.getBodyShapes());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBodyShapes(), getCoinAmount());
+    }
 }

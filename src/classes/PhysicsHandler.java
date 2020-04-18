@@ -5,6 +5,7 @@ import interfaces.PhysicalBody;
 import javafx.application.Platform;
 import javafx.scene.shape.Shape;
 
+import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -198,5 +199,39 @@ public class PhysicsHandler {
         if (body instanceof DynamicBody) {
             this.dynamicBodies.remove(body);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "PhysicsHandler{" +
+                "interval=" + interval +
+                ", dynamicBodies=" + dynamicBodies +
+                ", bodies=" + bodies +
+                ", collisionsOn=" + collisionsOn +
+                ", paused=" + paused +
+                ", speed=" + speed +
+                ", thread=" + thread +
+                ", environment=" + environment +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PhysicsHandler)) return false;
+        PhysicsHandler that = (PhysicsHandler) o;
+        return interval == that.interval &&
+                collisionsOn == that.collisionsOn &&
+                paused == that.paused &&
+                Double.compare(that.speed, speed) == 0 &&
+                Objects.equals(dynamicBodies, that.dynamicBodies) &&
+                Objects.equals(bodies, that.bodies) &&
+                Objects.equals(thread, that.thread) &&
+                Objects.equals(environment, that.environment);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(interval, dynamicBodies, bodies, collisionsOn, paused, speed, thread, environment);
     }
 }
