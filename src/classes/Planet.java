@@ -19,7 +19,7 @@ import java.util.Random;
  * @version 2020
  */
 public class Planet implements DynamicBody {
-
+    /* Private constant for a Random object. */
     private static final Random RANDOM = new Random();
 
     /* The radius is stored in kilometers(km) */
