@@ -17,7 +17,7 @@ public class BackgroundStar extends Circle {
     /**
      * The number of stars to generate in the generateStars method.
      */
-    static final int NUM_OF_STARS_TO_GENERATE = 25;
+    static final int NUM_OF_STARS_TO_GENERATE = 50;
 
     /**
      * The color of the stars.
@@ -27,7 +27,7 @@ public class BackgroundStar extends Circle {
     /**
      * The radius (size) of each star.
      */
-    static final int STAR_RADIUS = 4;
+    static final int STAR_RADIUS = 2;
 
     /**
      * Constructor to create a background star.
