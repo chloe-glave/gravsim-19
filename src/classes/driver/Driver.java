@@ -4,6 +4,8 @@ import classes.ClickHandler;
 import classes.Environment;
 import classes.Overlay;
 import javafx.application.Application;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.Group;
@@ -123,6 +125,7 @@ public class Driver extends Application {
         scene.addEventHandler(MouseEvent.MOUSE_CLICKED, clickHandler);
 
         primaryStage.setTitle("GRAVSIM-19");
+        primaryStage.getIcons().add(new Image("icon.png"));
         primaryStage.setScene(scene);
         primaryStage.show();
     }
