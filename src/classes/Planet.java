@@ -123,8 +123,8 @@ public class Planet implements DynamicBody {
     }
 
     private static double generateVelocity() {
-        final double velocityModifier = 4.0;
-        return RANDOM.nextDouble() * velocityModifier;
+        final double velocityModifier = 6.0;
+        return RANDOM.nextDouble() * velocityModifier - (velocityModifier / 2);
     }
 
     private static int generateRadius() {
