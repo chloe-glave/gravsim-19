@@ -17,7 +17,7 @@ public class PlanetTest {
     public ExpectedException thrown = ExpectedException.none();
 
     @org.junit.Before
-    public void setUp() throws Exception {
+    public void setUp() {
         defaultPlanet = new Planet();
         testPlanet = new Planet(0, 0, -2.123, 5.345, false);
     }
@@ -135,4 +135,29 @@ public class PlanetTest {
     public void getShapeReturnsObjectAndNotNullForTestPlanet() {
         assertNotNull(defaultPlanet.getShape());
     }
+
+    @Test
+    public void getXReturnsProperValueForDefaultPlanet() {
+        Circle locationCopy = (Circle) defaultPlanet.getShape();
+        assertEquals(defaultPlanet.getX(), locationCopy.getCenterX(), 0.05);
+    }
+
+    @Test
+    public void getYReturnsProperValueForDefaultPlanet() {
+        Circle locationCopy = (Circle) defaultPlanet.getShape();
+        assertEquals(defaultPlanet.getY(), locationCopy.getCenterY(), 0.05);
+    }
+
+    @Test
+    public void getXReturnsProperValueForTestPlanet() {
+        Circle locationCopy = (Circle) defaultPlanet.getShape();
+        assertEquals(defaultPlanet.getX(), locationCopy.getCenterX(), 0.05);
+    }
+
+    @Test
+    public void getYReturnsProperValueForTestPlanet() {
+        Circle locationCopy = (Circle) testPlanet.getShape();
+        assertEquals(testPlanet.getY(), locationCopy.getCenterY(), 0.05);
+    }
+
 }
