@@ -62,7 +62,7 @@ public class Driver extends Application {
         environment = new Environment();
         overlay = new Overlay();
         backgroundDecorations = BackgroundStar.generateStars();
-        clickHandler = new ClickHandler();
+        clickHandler = new ClickHandler(environment);
 
         leftText = new Text();
         rightText = new Text();
