@@ -26,7 +26,7 @@ public class Environment {
      */
     public Environment() {
         bodies = new ArrayList<>();
-        simulator = new PhysicsHandler();
+        simulator = new PhysicsHandler(this);
         bodyShapes = new Group();
     }
 

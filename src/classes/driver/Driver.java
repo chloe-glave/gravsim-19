@@ -1,5 +1,6 @@
 package classes.driver;
 
+import classes.ClickHandler;
 import classes.Environment;
 import classes.Overlay;
 import javafx.application.Application;
@@ -43,6 +44,8 @@ public class Driver extends Application {
 
     private Group backgroundDecorations;
 
+    private ClickHandler clickHandler;
+
     /**
      * Instantiates variables and starts up event handlers.
      */
@@ -50,6 +53,7 @@ public class Driver extends Application {
         environment = new Environment();
         overlay = new Overlay();
         backgroundDecorations = BackgroundStar.generateStars();
+        clickHandler = new ClickHandler();
 
         overlay.createHUD();
         overlay.getSpawnButtonPlanet().setOnAction(click -> environment.createPlanet());
@@ -72,7 +76,7 @@ public class Driver extends Application {
 
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BACKGROUND_COLOR);
 
-        scene.addEventFilter(MouseEvent.MOUSE_PRESSED, mouseEvent -> System.out.println("mouse click detected! " + mouseEvent.getX() + " " + mouseEvent.getY()));
+        scene.addEventHandler(MouseEvent.MOUSE_CLICKED, clickHandler);
 
         primaryStage.setTitle("GRAVSIM-19");
         primaryStage.setScene(scene);
