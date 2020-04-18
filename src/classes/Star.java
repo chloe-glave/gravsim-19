@@ -66,7 +66,7 @@ public class Star implements StaticBody {
         final int circleRadiusModifier = 500;
         final int shapeRadius = sunRadius / circleRadiusModifier;
         final int maxYSpawnRange = 640;
-        final double sunsMass = 1989000.0;
+        final double sunsMass = 19.89;
         this.radius = sunRadius;
         this.mass = sunsMass;
         this.shape = new Circle(random.nextInt(Driver.WINDOW_WIDTH

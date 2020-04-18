@@ -2,9 +2,7 @@ package classes.driver;
 
 import classes.Environment;
 import classes.Overlay;
-import classes.Star;
 import javafx.application.Application;
-import javafx.scene.shape.*;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -21,17 +19,17 @@ public class Driver extends Application {
     /**
      * The width of the JavaFX window.
      */
-    public final static int WINDOW_WIDTH = 1080;
+    public static final int WINDOW_WIDTH = 1080;
 
     /**
      * The height of the JavaFX window.
      */
-    public final static int WINDOW_HEIGHT = 720;
+    public static final int WINDOW_HEIGHT = 720;
 
     /**
      * The background color of the JavaFX window.
      */
-    final static Color WINDOW_BACKGROUND_COLOR = Color.BLACK;
+    static final Color WINDOW_BACKGROUND_COLOR = Color.BLACK;
 
     private Environment environment = new Environment();
 
@@ -54,7 +52,8 @@ public class Driver extends Application {
 
         environment.generateCoins();
 
-        Group root = new Group(backgroundDecorations, environment.getBodyShapes(), overlay.getHudGroup());
+        Group root = new Group(backgroundDecorations, environment.getBodyShapes(),
+                overlay.getHudGroup());
 
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BACKGROUND_COLOR);
 
