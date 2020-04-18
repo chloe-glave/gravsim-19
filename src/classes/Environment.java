@@ -73,6 +73,20 @@ public class Environment {
     }
 
     /**
+     * Creates a Planet and adds it to the Environment's bodies ArrayList.
+     *
+     * @param xPosition the x position for the Planet
+     * @param yPosition the y position for the Planet
+     */
+    public void createPlanet(double xPosition, double yPosition) {
+        Planet planet = new Planet(xPosition, yPosition);
+        bodies.add(planet);
+        simulator.addBody(planet);
+
+        bodyShapes.getChildren().add(planet.getShape());
+    }
+
+    /**
      * Creates a Star and adds it to the Environment's bodies ArrayList.
      */
     public void createStar() {

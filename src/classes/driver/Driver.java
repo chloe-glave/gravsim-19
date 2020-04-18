@@ -62,7 +62,7 @@ public class Driver extends Application {
         environment = new Environment();
         overlay = new Overlay();
         backgroundDecorations = BackgroundStar.generateStars();
-        clickHandler = new ClickHandler();
+        clickHandler = new ClickHandler(environment);
 
         leftText = new Text();
         rightText = new Text();
@@ -125,7 +125,7 @@ public class Driver extends Application {
         scene.addEventHandler(MouseEvent.MOUSE_CLICKED, clickHandler);
 
         primaryStage.setTitle("GRAVSIM-19");
-        primaryStage.getIcons().add(new Image("icon.png"));
+        primaryStage.getIcons().add(new Image("file:icon.png"));
         primaryStage.setScene(scene);
         primaryStage.show();
     }

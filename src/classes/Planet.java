@@ -58,7 +58,7 @@ public class Planet implements DynamicBody {
         this(generateRadius(), generateVelocity(), generateVelocity(), true, xPosition, yPosition);
     }
 
-    /**D
+    /**
      * Constructs a planet.
      *
      * @param radius the radius of the planet stored in km
