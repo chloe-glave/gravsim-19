@@ -35,21 +35,21 @@ public class Planet implements DynamicBody {
      */
     public Planet() {
         Random random = new Random();
-        final double defaultVelocity = 5;
         final int circleRadiusModifier = 500;
         final int earthsRadius = 6371;
         final int shapeRadius = earthsRadius / circleRadiusModifier;
         final double earthsMass = 5.972;
+        final int maxYSpawnRange = 640;
         final int colourBound = 255;
         this.radius = earthsRadius;
         this.mass = earthsMass;
         this.shape = new Circle(random.nextInt(Driver.WINDOW_WIDTH
                 - (shapeRadius * 2)) + shapeRadius,
-                random.nextInt(Driver.WINDOW_HEIGHT - (shapeRadius * 2)) + shapeRadius, shapeRadius,
+                random.nextInt(maxYSpawnRange - (shapeRadius * 2)) + shapeRadius, shapeRadius,
                 Color.rgb(random.nextInt(colourBound),
                         random.nextInt(colourBound), random.nextInt(colourBound)));
-        this.vx = defaultVelocity;
-        this.vy = defaultVelocity;
+        this.vx = 0;
+        this.vy = 0;
         destructible = true;
     }
 
