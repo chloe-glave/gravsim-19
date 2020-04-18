@@ -72,7 +72,7 @@ public class Star implements StaticBody {
      * Constructs a Star object with default values.
      */
     public Star() {
-        this(STAR_RADIUS, STAR_MASS, true);
+        this(STAR_RADIUS, STAR_MASS, false);
     }
 
     /**
