@@ -34,7 +34,7 @@ public class Driver extends Application {
      */
     public static final int WINDOW_HEIGHT = 720;
 
-    /**
+    /*
      * The background color of the JavaFX window.
      */
     private static final Color WINDOW_BACKGROUND_COLOR = Color.BLACK;
@@ -53,7 +53,7 @@ public class Driver extends Application {
 
     private static Text scoreText;
 
-    /**
+    /*
      * Instantiates variables and starts up event handlers.
      */
     private void setUp() {
@@ -73,6 +73,9 @@ public class Driver extends Application {
         environment.generateCoins();
     }
 
+    /*
+     * Creates tutorial text for first time users to help them understand playing the game.
+     */
     private Group createTutorialText() {
         leftText.setText("Gravity Simulator");
         leftText.setX(80.0);

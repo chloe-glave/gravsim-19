@@ -19,7 +19,7 @@ public class PlanetTest { // SUITE OF UNIT TESTS
     @org.junit.Before
     public void setUp() {
         defaultPlanet = new Planet();
-        testPlanet = new Planet(0, 0, -2.123, 5.345, false);
+        testPlanet = new Planet(0, -2.123, 5.345, false);
     }
 
     @Test
