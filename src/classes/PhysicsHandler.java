@@ -28,7 +28,7 @@ public class PhysicsHandler {
     public static final double GRAVITATIONAL_CONSTANT = 0.2;
 
     private long interval;
-    private CopyOnWriteArrayList<DynamicBody> dynamicBodies;
+    private CopyOnWriteArrayList<DynamicBody> dynamicBodies; // 1/2 TYPES OF COLLECTIONS
     private CopyOnWriteArrayList<PhysicalBody> bodies;
     private boolean collisionsOn;
     private boolean paused;
@@ -105,9 +105,9 @@ public class PhysicsHandler {
     private void simulateCollision(PhysicalBody first, PhysicalBody second) {
         Platform.runLater(() -> {
             if (first.getMass() >= second.getMass()) {
-                environment.removeBody(second);
+                removeBody(second);
             } else {
-                environment.removeBody(first);
+                removeBody(first);
             }
         });
     }
@@ -121,7 +121,7 @@ public class PhysicsHandler {
 
     /* Accelerate all dynamic bodies towards all other bodies, once. */
     private void accelerateBodies() {
-        for (DynamicBody body : dynamicBodies) {
+        for (DynamicBody body : dynamicBodies) { // USE OF POLYMORPHISM
             for (PhysicalBody otherBody : bodies) {
                 if (body != otherBody) {
                     double deltaX = otherBody.getX() - body.getX();
@@ -142,14 +142,14 @@ public class PhysicsHandler {
     }
 
     /* Start the simulation. */
-    private void run() {
+    private void run() { // USE OF THREADING
         boolean running = true;
         while (running) {
             moveBodies();
             checkCollisions();
             accelerateBodies();
 
-            try {
+            try { // EXCEPTION HANDLING
                 Thread.sleep((long) (interval / speed));
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -193,6 +193,7 @@ public class PhysicsHandler {
      * @post remove the provided body from the ArrayList of bodies being handled
      */
     public void removeBody(PhysicalBody body) {
+        environment.removeBody(body);
         this.bodies.remove(body);
         if (body instanceof DynamicBody) {
             this.dynamicBodies.remove(body);

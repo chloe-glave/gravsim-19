@@ -8,7 +8,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.rules.*;
 
-public class PlanetTest {
+public class PlanetTest { // SUITE OF UNIT TESTS
 
     private Planet defaultPlanet;
     private Planet testPlanet;
@@ -23,16 +23,6 @@ public class PlanetTest {
     }
 
     @Test
-    public void getVxReturnsProperValueForDefaultPlanet(){
-        assertEquals(5, defaultPlanet.getVx(), 0.05);
-    }
-
-    @Test
-    public void getVyReturnsProperValueForDefaultPlanet(){
-        assertEquals(5, defaultPlanet.getVy(), 0.05);
-    }
-
-    @Test
     public void getVxReturnsProperValueForTestPlanet(){
         assertEquals(-2.123, testPlanet.getVx(), 0.05);
     }
@@ -44,14 +34,16 @@ public class PlanetTest {
 
     @Test
     public void addVxAddsProperlyToVxOnDefaultPlanet(){
+        double vxBefore = defaultPlanet.getVx();
         defaultPlanet.addVx(-3.2);
-        assertEquals(1.8, defaultPlanet.getVx(), 0.05);
+        assertEquals(vxBefore - 3.2, defaultPlanet.getVx(), 0.05);
     }
 
     @Test
     public void addVyAddsProperlyToVyOnDefaultPlanet(){
+        double vyBefore = defaultPlanet.getVy();
         defaultPlanet.addVy(3.2);
-        assertEquals(8.2, defaultPlanet.getVy(), 0.05);
+        assertEquals(vyBefore + 3.2, defaultPlanet.getVy(), 0.05);
     }
 
     @Test
@@ -108,7 +100,8 @@ public class PlanetTest {
 
     @Test
     public void getMassProperlyReturnsTheCorrectValueForDefaultPlanet() {
-        assertEquals(defaultPlanet.getMass(), 5.972, 0.05);
+        double defaultPlanetMass = (defaultPlanet.getRadius() * 1.0) / 1000;
+        assertEquals(defaultPlanet.getMass(), defaultPlanetMass, 0.05);
     }
 
     @Test
@@ -158,6 +151,17 @@ public class PlanetTest {
     public void getYReturnsProperValueForTestPlanet() {
         Circle locationCopy = (Circle) testPlanet.getShape();
         assertEquals(testPlanet.getY(), locationCopy.getCenterY(), 0.05);
+    }
+
+    @Test
+    public void getRadiusReturnsProperValueForDefaultPlanet() {
+        double radiusCalculated = defaultPlanet.getMass() * 1000;
+        assertEquals(defaultPlanet.getRadius() * 1.0, radiusCalculated, 0.1);
+    }
+
+    @Test
+    public void getRadiusReturnsProperValueForTestPlanet() {
+        assertEquals(testPlanet.getRadius(), 500);
     }
 
 }
