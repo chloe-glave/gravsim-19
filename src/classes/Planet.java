@@ -58,6 +58,18 @@ public class Planet implements DynamicBody {
         this(generateRadius(), generateVelocity(), generateVelocity(), true, xPosition, yPosition);
     }
 
+    /**
+     * Constructs a planet with default values, x, y positions, and x, y velocities.
+     *
+     * @param vx the x velocity for the planet
+     * @param vy the y velocity for the planet
+     * @param xPosition the x position for the planet
+     * @param yPosition the y position for the planet
+     */
+    public Planet(double vx, double vy, double xPosition, double yPosition) {
+        this(generateRadius(), vx, vy, true, xPosition, yPosition);
+    }
+
     /**D
      * Constructs a planet.
      *
