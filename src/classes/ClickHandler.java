@@ -3,6 +3,8 @@ package classes;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
+import java.util.Objects;
+
 /**
  * Detects and manages click behaviour.
  *
@@ -32,6 +34,34 @@ public class ClickHandler implements EventHandler<MouseEvent> {
         double clickY = mouseEvent.getY();
 
         environment.createPlanet(clickX, clickY);
+    }
+
+    /**
+     * Check if two ClickHandlers are equal.
+     *
+     * @param o the object against which to check
+     * @return whether or not the two objects are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ClickHandler that = (ClickHandler) o;
+        return environment.equals(that.environment);
+    }
+
+    /**
+     * Create a hashcode for the ClickHandler.
+     *
+     * @return a hashcode for the ClickHandler
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(environment);
     }
 
     /**
