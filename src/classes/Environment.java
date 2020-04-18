@@ -110,6 +110,4 @@ public class Environment {
         bodyShapes.getChildren().remove(body.getShape());
     }
 
-
-
 }

@@ -19,19 +19,19 @@ import java.util.Random;
  * @version 2020
  */
 public class Star implements StaticBody {
-
+    /* Private constant for a Random object. */
     private static final Random RANDOM = new Random();
 
-    /* The radius of a default star */
+    /* The radius of a default star. */
     private static final int STAR_RADIUS = 15000;
 
-    /* The mass of a default star */
+    /* The mass of a default star. */
     private static final double STAR_MASS = 19.89;
 
-    /* The radius for the Star in kilometers(km)*/
+    /* The radius for the Star in kilometers(km).*/
     private final int radius;
 
-    /* The mass for the Star in 10^24 kilograms (kg)*/
+    /* The mass for the Star in 10^24 kilograms (kg).*/
     private final double mass;
 
     /* The display for Star. */
