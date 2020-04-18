@@ -4,7 +4,6 @@ import classes.ClickHandler;
 import classes.Environment;
 import classes.Overlay;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;

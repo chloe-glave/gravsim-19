@@ -28,7 +28,7 @@ public class PhysicsHandler {
     public static final double GRAVITATIONAL_CONSTANT = 0.2;
 
     private long interval;
-    private CopyOnWriteArrayList<DynamicBody> dynamicBodies;
+    private CopyOnWriteArrayList<DynamicBody> dynamicBodies; // 1/2 TYPES OF COLLECTIONS
     private CopyOnWriteArrayList<PhysicalBody> bodies;
     private boolean collisionsOn;
     private boolean paused;
@@ -121,7 +121,7 @@ public class PhysicsHandler {
 
     /* Accelerate all dynamic bodies towards all other bodies, once. */
     private void accelerateBodies() {
-        for (DynamicBody body : dynamicBodies) {
+        for (DynamicBody body : dynamicBodies) { // USE OF POLYMORPHISM
             for (PhysicalBody otherBody : bodies) {
                 if (body != otherBody) {
                     double deltaX = otherBody.getX() - body.getX();
@@ -142,14 +142,14 @@ public class PhysicsHandler {
     }
 
     /* Start the simulation. */
-    private void run() {
+    private void run() { // USE OF THREADING
         boolean running = true;
         while (running) {
             moveBodies();
             checkCollisions();
             accelerateBodies();
 
-            try {
+            try { // EXCEPTION HANDLING
                 Thread.sleep((long) (interval / speed));
             } catch (InterruptedException e) {
                 e.printStackTrace();
