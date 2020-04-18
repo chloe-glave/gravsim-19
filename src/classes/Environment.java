@@ -53,7 +53,7 @@ public class Environment {
     /**
      * Gets the coin amount for the Environment.
      *
-     * @return
+     * @return The current amount of coins.
      */
     public int getCoinAmount() {
         return coinAmount;
