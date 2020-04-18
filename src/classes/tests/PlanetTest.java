@@ -153,4 +153,15 @@ public class PlanetTest {
         assertEquals(testPlanet.getY(), locationCopy.getCenterY(), 0.05);
     }
 
+    @Test
+    public void getRadiusReturnsProperValueForDefaultPlanet() {
+        double radiusCalculated = defaultPlanet.getMass() * 1000;
+        assertEquals(defaultPlanet.getRadius() * 1.0, radiusCalculated, 0.1);
+    }
+
+    @Test
+    public void getRadiusReturnsProperValueForTestPlanet() {
+        assertEquals(testPlanet.getRadius(), 500);
+    }
+
 }
