@@ -12,6 +12,10 @@ import javafx.scene.paint.Color;
  * Drives the JavaFX program and displays the content in the window.
  *
  * @author Chloe Glave
+ * @author Janelle Kwok
+ * @author Kayden Schmidt
+ * @author Keegan Maundrell
+ *
  * @version 2020
  */
 public class Driver extends Application {

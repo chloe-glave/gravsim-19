@@ -10,6 +10,7 @@ import java.util.Random;
  * Background stars and decorations for the application.
  *
  * @author Chloe Glave
+ *
  * @version 2020
  */
 public class BackgroundStar extends Circle {
