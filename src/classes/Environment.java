@@ -103,10 +103,8 @@ public class Environment {
      */
     public void removeBody(SpatialEntity body) {
         if (body.getClass().equals(Coin.class)) {
-            System.out.printf("Current coin amount is now: %d\n",
-                    getCoinAmount() + 1);
             setCoinAmount(getCoinAmount() + 1);
-            Driver.updateScoreText("Score: " + getCoinAmount());
+            Driver.updateScoreText(getCoinAmount());
         }
         bodies.remove(body);
         bodyShapes.getChildren().remove(body.getShape());

@@ -97,8 +97,13 @@ public class Driver extends Application {
 
     }
 
-    public static void updateScoreText(String newText) {
-        scoreText.setText(newText);
+    /**
+     * Mutates value of the scoreText on the screen.
+     *
+     * @param newValue the value to update the score to.
+     */
+    public static void updateScoreText(int newValue) {
+        scoreText.setText("Score: " + newValue);
     }
 
     /**

@@ -106,7 +106,8 @@ public class PlanetTest { // SUITE OF UNIT TESTS
 
     @Test
     public void getMassProperlyReturnsTheCorrectValueForTestPlanet() {
-        assertEquals(testPlanet.getMass(), 0.01, 0.05);
+        double testPlanetMass = (testPlanet.getRadius() * 1.0) / 1000;
+        assertEquals(testPlanet.getMass(), testPlanetMass, 0.05);
     }
 
     @Test
