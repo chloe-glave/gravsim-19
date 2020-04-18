@@ -28,6 +28,8 @@ public class Star implements StaticBody {
     /* Determines whether or not the Star is destructible. */
     private boolean destructible;
 
+    private static final Random random = new Random();
+
     /**
      * Constructs a Star object with an assigned destructibility.
      *
@@ -37,7 +39,6 @@ public class Star implements StaticBody {
      * @param colour The colour of the Star.
      **/
     public Star(int radius, double mass, boolean destructible, Color colour) {
-        Random random = new Random();
         final int circleRadiusModifier = 500;
         final int shapeRadius = radius / circleRadiusModifier;
         final int maxYSpawnRange = 640;
@@ -61,7 +62,6 @@ public class Star implements StaticBody {
      * Constructs a Star object with default values.
      */
     public Star() {
-        Random random = new Random();
         final int sunRadius = 9999;
         final int circleRadiusModifier = 500;
         final int shapeRadius = sunRadius / circleRadiusModifier;
@@ -113,6 +113,26 @@ public class Star implements StaticBody {
     @Override
     public Shape getShape() {
         return shape;
+    }
+
+    /**
+     * Sets the x values of shape.
+     *
+     * @param x The value for it to be changed to.
+     */
+    @Override
+    public void setX(double x) {
+        shape.setCenterX(x);
+    }
+
+    /**
+     * Sets the y values of the shape.
+     *
+     * @param y The value for it to be changed to.
+     */
+    @Override
+    public void setY(double y) {
+        shape.setCenterY(y);
     }
 
     /**

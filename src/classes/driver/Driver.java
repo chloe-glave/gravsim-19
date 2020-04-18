@@ -1,17 +1,24 @@
 package classes.driver;
 
+import classes.ClickHandler;
 import classes.Environment;
 import classes.Overlay;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import javafx.scene.input.MouseEvent;
 
 /**
  * Drives the JavaFX program and displays the content in the window.
  *
  * @author Chloe Glave
+ * @author Janelle Kwok
+ * @author Kayden Schmidt
+ * @author Keegan Maundrell
+ *
  * @version 2020
  */
 public class Driver extends Application {
@@ -31,11 +38,29 @@ public class Driver extends Application {
      */
     static final Color WINDOW_BACKGROUND_COLOR = Color.BLACK;
 
-    private Environment environment = new Environment();
+    private Environment environment;
 
-    private Overlay overlay = new Overlay();
+    private Overlay overlay;
 
-    private Group backgroundDecorations = BackgroundStar.generateStars();
+    private Group backgroundDecorations;
+
+    private ClickHandler clickHandler;
+
+    /**
+     * Instantiates variables and starts up event handlers.
+     */
+    private void setUp() {
+        environment = new Environment();
+        overlay = new Overlay();
+        backgroundDecorations = BackgroundStar.generateStars();
+        clickHandler = new ClickHandler();
+
+        overlay.createHUD();
+        overlay.getSpawnButtonPlanet().setOnAction(click -> environment.createPlanet());
+        overlay.getSpawnButtonStar().setOnAction(click -> environment.createStar());
+
+        environment.generateCoins();
+    }
 
     /**
      * Displays the scene in the window.
@@ -44,20 +69,16 @@ public class Driver extends Application {
      */
     public void start(Stage primaryStage) {
 
-        overlay.createHUD();
-
-        overlay.getSpawnButtonPlanet().setOnAction(click -> environment.createPlanet());
-
-        overlay.getSpawnButtonStar().setOnAction(click -> environment.createStar());
-
-        environment.generateCoins();
+        setUp();
 
         Group root = new Group(backgroundDecorations, environment.getBodyShapes(),
                 overlay.getHudGroup());
 
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_BACKGROUND_COLOR);
 
-        primaryStage.setTitle("The beginning of something great");
+        scene.addEventHandler(MouseEvent.MOUSE_CLICKED, clickHandler);
+
+        primaryStage.setTitle("GRAVSIM-19");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

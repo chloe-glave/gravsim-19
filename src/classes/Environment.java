@@ -9,6 +9,10 @@ import java.util.ArrayList;
  * Handles the simulation.
  *
  * @author Chloe Glave
+ * @author Janelle Kwok
+ * @author Kayden Schmidt
+ * @author Keegan Maundrell
+ *
  * @version 2020
  */
 public class Environment {
@@ -18,21 +22,21 @@ public class Environment {
     private Group bodyShapes;
 
     /**
-     * Accesses the bodyShapes Group.
-     *
-     * @return bodyShapes.
-     */
-    public Group getBodyShapes() {
-        return bodyShapes;
-    }
-
-    /**
      * Constructs an Environment.
      */
     public Environment() {
         bodies = new ArrayList<>();
         simulator = new PhysicsHandler(this);
         bodyShapes = new Group();
+    }
+
+    /**
+     * Accesses the bodyShapes Group.
+     *
+     * @return bodyShapes.
+     */
+    public Group getBodyShapes() {
+        return bodyShapes;
     }
 
     /**
@@ -58,7 +62,8 @@ public class Environment {
     }
 
     public void generateCoins() {
-        for (int index = 0; index < 5; index++) {
+        final int numberOfCoins = 5;
+        for (int index = 0; index < numberOfCoins; index++) {
             Coin coin = new Coin();
             bodies.add(coin);
             simulator.addBody(coin);
